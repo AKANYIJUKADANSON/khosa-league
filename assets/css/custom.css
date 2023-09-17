@@ -1,0 +1,639 @@
+
+
+table .league-table-img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.table tr{
+  text-align: center;
+}
+
+.results{
+    background-color: white;
+}
+
+.results .card-body{
+    background-color: white;
+    box-shadow: 1px 2px 3px 4px rgba(10, 10, 10, 0.1);
+    border-radius: 7px;
+    margin: 10px 10px 10px 10px;
+}
+
+.carousel-inner img{
+    height: 600px;
+}
+
+.marquee{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.img-logo{
+    border-radius: 50%;
+}
+
+
+/* ============from dewi=============== */
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbar {
+    padding: 0;
+  }
+  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar>ul>li {
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+  
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    padding: 0 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: grey;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+  
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+  
+  .navbar>ul>li>a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: #ff4a17;
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  
+  .navbar a:hover:before,
+  .navbar li:hover>a:before,
+  .navbar .active:before {
+    visibility: visible;
+    width: 100%;
+  }
+  
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: rgb(255, 0, 0);
+  }
+  
+  .navbar .getstarted,
+  .navbar .getstarted:focus {
+    padding: 8px 25px;
+    margin-left: 30px;
+    border-radius: 4px;
+    color:  rgb(255, 255, 255);
+    background: rgb(29, 104, 62);
+  }
+  
+  .navbar .getstarted:hover,
+  .navbar .getstarted:focus:hover {
+    color: rgb(255, 255, 255);
+    background: red;
+    border-color: 2px solid #ff4a17;
+  }
+  
+  .navbar>ul>li>.getstarted:before {
+    visibility: hidden;
+  }
+  
+  .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 14px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    border-radius: 4px;
+  }
+  
+  .navbar .dropdown ul li {
+    min-width: 200px;
+  }
+  
+  .navbar .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: none;
+    color: #15222b;
+    font-weight: 400;
+  }
+  
+  .navbar .dropdown ul a i {
+    font-size: 12px;
+  }
+  
+  .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul .active:hover,
+  .navbar .dropdown ul li:hover>a {
+    color: green;
+  }
+  
+  .navbar .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+  
+  .navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+  }
+  
+  .navbar .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+  }
+  
+  @media (max-width: 1366px) {
+    .navbar .dropdown .dropdown ul {
+      left: -90%;
+    }
+  
+    .navbar .dropdown .dropdown:hover>ul {
+      left: -100%;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /** ================= Mobile Navigation =============*/
+  .mobile-nav-toggle {
+    color: deepskyblue;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.8s;
+  }
+  
+  @media (max-width: 991px) {
+    .mobile-nav-toggle {
+      display: block;
+    }
+  
+    .navbar ul {
+      display: none;
+    }
+    
+    /* table heading h2 */
+    .la-container-table h2{
+      font-size: 40px;
+    }
+
+  }
+  
+  .navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(4, 7, 9, 0.9);
+    transition: 0.3s;
+    z-index: 999;
+  }
+  
+  .navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+  }
+  
+  .navbar-mobile a,
+  .navbar-mobile a:focus {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #15222b;
+  }
+  
+  .navbar-mobile a:hover,
+  .navbar-mobile .active,
+  .navbar-mobile li:hover>a {
+    color: #ff4a17;
+  }
+  
+  .navbar-mobile .getstarted,
+  .navbar-mobile .getstarted:focus {
+    margin: 15px;
+  }
+  
+  .navbar-mobile .dropdown ul {
+    position: static;
+    display: none;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  }
+  
+  .navbar-mobile .dropdown ul li {
+    min-width: 200px;
+  }
+  
+  .navbar-mobile .dropdown ul a {
+    padding: 10px 20px;
+  }
+  
+  .navbar-mobile .dropdown ul a i {
+    font-size: 12px;
+  }
+  
+  .navbar-mobile .dropdown ul a:hover,
+  .navbar-mobile .dropdown ul .active:hover,
+  .navbar-mobile .dropdown ul li:hover>a {
+    color: #ff4a17;
+  }
+  
+  .navbar-mobile .dropdown.dropdown-active {
+    display: block;
+  }
+
+
+
+
+
+
+
+  /* ========================================== */
+  /* About */
+  .heading-text-about{
+    font-size: 70px;
+    margin-top: 70px;
+  }
+
+  .la-container{
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../img/teams-page-bg.jpg);
+    height: 30vh;
+    background-attachment: fixed;
+  }
+
+  .la-container-about{
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../img/teams-page-bg.jpg);
+    height: 40vh;
+    background-attachment: fixed;
+  }
+
+  .la-container-single-team{
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../img/teams-page-bg.jpg);
+    height: 50vh;
+    background-attachment: fixed;
+    padding-top: 60px;
+  }
+
+  .la-container-table{
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../img/teams-page-bg.jpg);
+    height: 50vh;
+    background-attachment: fixed;
+    padding-top: 60px;
+  }
+
+  /* table text color */
+  .kltable table{
+    font-size: 17px;
+    text-align: left;
+  }
+
+  .headin{
+    /* background-image: url(../img/hero2.jpg); */
+    height: 300px;
+  }
+
+  .about-right-heading{
+    font-size: 50px;
+    font-weight: bolder;
+  }
+
+  .about-details{
+    font-size: larger;
+    margin-top: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .about-teams img{
+    height: 100px;
+  }
+
+
+  /* single team */
+
+
+  #team-budge-img{
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+.portfolio .portfolio-item {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  
+  width: 20%;
+}
+
+.portfolio .portfolio-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* background: rgba(34, 34, 34, 0.6);
+  background-color: black; */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.portfolio .portfolio-wrap::before {
+  content: "";
+  background: rgba(51, 50, 50, 0.6);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+
+
+.portfolio .portfolio-wrap .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+  color: #78d9cd;
+}
+
+.portfolio .portfolio-wrap:hover::before {
+  opacity: 1;
+}
+
+.portfolio .portfolio-wrap:hover img {
+  transform: scale(1.2);
+}
+
+.portfolio .portfolio-wrap img {
+  transition: all ease-in-out 0.3s;
+  padding: 10px;
+  width: 100%;
+  height: 80%;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.portfolio-details {
+  padding-top: 0;
+}
+
+.portfolio-details .portfolio-info {
+  /* padding: 30px; */
+  box-shadow: 0px 0 30px rgba(34, 34, 34, 0.08);
+}
+
+.socail_links li{
+  text-decoration: none;
+  list-style: none;
+  margin: 10px;
+}
+
+.socail_links li a{
+  height: 20px;
+  width: 20px;
+}
+
+.footer h2 {
+  color: white;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+.footer p, a{
+  font-size: 20px;
+  color: white;
+}
+
+.footer a:hover{
+  font-size: 20px;
+  color: rgb(255, 0, 43);
+}
+
+.footer .footer_widget{
+  margin-top: 20px;
+}
+
+.footer .newsletter_form input{
+  border: 2px solid #ff4a17;
+  border-radius: 5px;
+  height: 40px;
+  width: 50%;
+}
+
+.footer .newsletter_form button{
+  margin: 20px 0 20px 0;
+  background-color: red;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.footer .social_media_icons{
+  margin-top: 100px;
+}
+
+.footer .imprtant-links{
+  text-decoration: none;
+  list-style: none;
+}
+
+
+/* Team css */
+
+.card.teamcard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.teamcard .cardheader {
+  background: url("../img/hero1.jp");
+  background-size: cover;
+  /* height: 250px; */
+  border-radius: 10px;
+}
+
+.card.teamcard .cardheader img{
+  height: 100%;
+  width: 100%;
+}
+
+.card.teamcard .avatar {
+  position: relative;
+  top: -50px;
+  margin-bottom: -50px;
+  
+}
+
+.card.teamcard .avatar img {
+  width: 100px;
+  height: 100px;
+  max-width: 150px;
+  max-height: 150px;
+  background-color: white;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.teamcard .info {
+  padding: 4px 8px 10px;
+}
+
+/* ======================NEWS==================== */
