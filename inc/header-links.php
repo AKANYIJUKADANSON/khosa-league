@@ -21,3 +21,10 @@
 
 <!-- Custom css -->
 <link rel="stylesheet" href="../assets/css/custom.css">
+
+<!-- Swiper.bundle.min.css -->
+<link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+
+<!-- custom swiper css -->
+<link rel="stylesheet" href="../assets/css/swiper.css">
+

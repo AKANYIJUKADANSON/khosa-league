@@ -1,22 +1,30 @@
 <?php
 
-include('../admin/config.php');
+  include('../admin/config.php');
 
-// fetch posts/news
-$query_news = "SELECT * FROM news ORDER BY 'created_on' LIMIT 2";
-$query_news_run = mysqli_query($conn, $query_news);
+  // fetch posts/news
+  $query_news = "SELECT * FROM news ORDER BY 'created_on' LIMIT 2";
+  $query_news_run = mysqli_query($conn, $query_news);
 
-// fetch results
-$query_results = "SELECT * FROM results";
-$query_results_run = mysqli_query($conn, $query_results);
+  // fetch results
+  $query_results = "SELECT * FROM results";
+  $query_results_run = mysqli_query($conn, $query_results);
 
-// fetch fixtures
-$query_fixtures = "SELECT * FROM fixtures LIMIT 3";
-$query_fixtures_run = mysqli_query($conn, $query_fixtures);
+  // fetch fixtures
+  $query_fixtures = "SELECT * FROM fixtures LIMIT 3";
+  $query_fixtures_run = mysqli_query($conn, $query_fixtures);
 
-// Fetching the table
-$query_KLtable = "SELECT * FROM KLtable LIMIT 6";
-$query_KLtable_run = mysqli_query($conn, $query_KLtable);
+  // Fetching the table
+  $query_KLtable = "SELECT * FROM KLtable LIMIT 6";
+  $query_KLtable_run = mysqli_query($conn, $query_KLtable);
+
+
+  $query_clubs = "SELECT * FROM clubs";
+  $query_clubs_run = mysqli_query($conn, $query_clubs);
+
+  // Fetching sponsors
+  $query_sponsors = "SELECT * FROM sponsors";
+  $query_sponsors_run = mysqli_query($conn, $query_sponsors);
 ?>
 
 
@@ -32,6 +40,7 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
   <title>Home - KHOSA LEAGUE</title>
 
   <?php include('../inc/header-links.php'); ?>
+
 
 </head>
 
@@ -102,14 +111,14 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
       <div class="col-lg-4">
 
         <!--===================================== Results Card =============================-->
-        <div class="card results">
+        <div class="card result-fixture">
           <!-- <div class="bg-success"> -->
-          <h5 class="card-title bg-success text-white ps-4">Results</h5>
+          <h5 class="card-title card-title-results text-white ps-4">RESULTS</h5>
 
           <!-- <div class="card results m-2"> -->
 
           <?php while ($results = mysqli_fetch_assoc($query_results_run)) { ?>
-            <div class="card-body">
+            <div class="card-body result">
               <div class="float-start pt-2">
                 <span class="text-center px-1"><?= $results['team1']; ?> FC</span>
                 <span style="align-items: center;"><img class="rounded-circle" style="height: 40px; width: 40px;" src="../assets/img/teams/<?= $results['team1']; ?>.png" alt=""></span>
@@ -131,12 +140,12 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
         </div>
 
         <!--====================================== Fixtures ==================================-->
-        <div class="card results">
+        <div class="card  result-fixture">
           <!-- <div class="bg-success"> -->
-          <h5 class="card-title bg-danger text-white ps-4">Fixtures</h5>
+          <h4 class="card-title card-title-fixtures text-white ps-4"><b>FIXTURES</b></h4>
 
           <?php while ($fixtures = mysqli_fetch_assoc($query_fixtures_run)) { ?>
-            <div class="card-body">
+            <div class="card-body fixture">
               <div class="float-start pt-2">
                 <span style="text-align: center;" class="px-1"><?= $fixtures['team1']; ?> FC</span>
                 <span style="align-items: center;"><img style="height: 40px; width: 40px; border-radius: 50%;" src="../assets/img/teams/<?= $fixtures['team1']; ?>.png" alt=""></span>
@@ -164,7 +173,8 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
   </div>
 
 
-  <div style="background-color: rgb(199, 236, 204); ">
+  <!-- <div style="background-color: rgb(199, 236, 204); "> -->
+  <div class="table-posts">
     <!-- ==================Start of table & Posts div================== -->
     <div class="row px-1 pt-4">
       <!-- Left side columns -->
@@ -216,7 +226,7 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
                 </table>
 
                 <div class="d-flex justify-content-center">
-                  <a href="table.php" class="btn btn-success">FULL TABLE<i class="mx-2 bi bi-arrow-right"></i></a>
+                  <a href="table.php" class="btn btn-primary">FULL TABLE<i class="mx-2 bi bi-arrow-right"></i></a>
                 </div>
                 <!-- End Table with hoverable rows -->
 
@@ -224,48 +234,12 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
             </div>
           </div>
 
-          <div class="col-12">
+          <!-- <div class="col-12" style="border: 2px solid green">
             <h1 class="card-title">Latest Videos</h1>
             <div class="row">
 
-              <div class="col-sm-4">
-                <div class="card pt-2 ">
-                  <div class="card-body">
-                    <video width="100%" controls>
-                      <source src="../assets/img/newsAndUpdates/gwajwaVSelites.mp4" type="video/mp4">
-                      <source src="../assets/img/newsAndUpdates/gwajwaVSelites.0gg" type="video/ogg">
-                    </video>
-                    <p><u>Gwajwa FC VS Elites FC xxxxxxxxxxxxxx</u></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="card pt-2 ">
-                  <div class="card-body">
-                    <video width="100%" controls>
-                      <source src="../assets/img/newsAndUpdates/gwajwaVSelites.mp4" type="video/mp4">
-                      <source src="../assets/img/newsAndUpdates/gwajwaVSelites.0gg" type="video/ogg">
-                    </video>
-                    <p><u>Gwajwa FC VS Elites FC xxxxxxxxxxxxxx</u></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="card pt-2">
-                  <div class="card-body">
-                    <video width="100%" controls>
-                      <source src="../assets/img/newsAndUpdates/gwajwaVSelites.mp4" type="video/mp4">
-                      <source src="../assets/img/newsAndUpdates/gwajwaVSelites.0gg" type="video/ogg">
-                    </video>
-                    <p><u>Gwajwa FC VS Elites FC xxxxxxxxxxxxxx</u></p>
-                  </div>
-                </div>
-
-              </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -282,7 +256,7 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
                   <div class="d-flex">
                     <img height="150" width="150" class="me-2 rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['image_file']; ?>' alt="">
                     <div class="d-block text-black">
-                      <h4><b><span class="text-primary"><?= $rows['title']; ?></span></b></h4>
+                      <h3><b><a href="single-news.php?news_id=<?= $rows['id'] ?>" class="news-title"><?= $rows['title']; ?></a></b></h3>
 
                       <p><?= $rows['body']; ?></p>
                     </div>
@@ -291,7 +265,7 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
                     <div class="justifly-content-start">
                       <small>Last updated </small>
                       <small class="text-muted"><?= $rows['created_on']; ?></small>
-                      <a href="single-news.php?news_id=<?= $rows['id'] ?>" class="float-end btn btn-danger">Read</a>
+                      <a href="single-news.php?news_id=<?= $rows['id'] ?>" class="float-end btn">Read</a>
                     </div>
                   </div>
                 </div>
@@ -302,7 +276,7 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
           </div>
 
           <div class="d-flex justify-content-center mb-4">
-            <a href="table.php" class="btn btn-success">MORE POSTS<i class="bi bi-arrow-right mx-2"></i></a>
+            <a href="news.php" class="btn">MORE POSTS<i class="bi bi-arrow-right mx-2"></i></a>
           </div>
         </div>
         <!-- End News & Updates -->
@@ -312,5 +286,68 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
     <!-- ==================End of hero div================== -->
   </div>
 
+
+  <!-- ====================SWIPER======================== -->
+  <div class="row col-md-12 mt-4 mx-1">
+    <!-- <div class="card-title"> -->
+    <h4><b>Latest Videos</b></h4>
+    <!-- </div> -->
+
+    <div class="slide-container swiper">
+      <div class="slide-content">
+        <div class="swiper-wrapper">
+
+          <?php while ($row = mysqli_fetch_assoc($query_clubs_run)) { ?>
+
+            <div class="card swiper-slide">
+              <div class="card-wrapper">
+                <video width="100%" controls>
+                  <source src="../assets/videos/gwajwa4.mp4" type="video/mp4">
+                  <source src="../assets/videos/gwajwa4.0gg" type="video/ogg">
+                </video>
+                <!-- <img style="height: 100px; " src="../assets/img/hero2.jpg" alt="" srcset=""> -->
+                <!-- <div class="card-content"> -->
+                <p><u><?= $row['name']; ?></u></p>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, ut deserunt? Eos quos obcaecati consectetur</p>
+
+                <button class="btn btn-swiper">View</button>
+                <!-- </div> -->
+
+              </div>
+            </div>
+
+          <?php } ?>
+        </div>
+      </div>
+      <div class="swiper-button-next swiper-navBtn text-primary"></div>
+      <div class="swiper-button-prev swiper-navBtntext-primary"></div>
+      <div class="swiper-pagination text-primary"></div>
+    </div>
+  </div>
+
+
+  <!-- ====================Sponsors======================== -->
+  <div class="row mt-4">
+    <div class="card-title text-center">
+      <h1><b>Sponsors</b></h1>
+    </div>
+    
+    <div class="row col-md-12 mx-4">
+    <hr class="hr" style="height: 4px; background-color: deepskyblue;">
+      <?php while ($sponsor = mysqli_fetch_assoc($query_sponsors_run)) { ?>
+        <div class="col-lg-2 align-items-center">
+          <!-- <a href="single-team.php?team=<?php //echo $sponsor['sponsor']; ?>"> -->
+            <div class="bg-transparent d-flex align-items-center flex-column">
+                <img class="rounded" width="100" height="100" src="../assets/img/sponsors/<?= $sponsor['logo']; ?>" alt="">
+                  <h2 class="text-center text-dark card-title"><?=$sponsor['sponsor'];?> <span>(<b><?= $sponsor['team'];?></b>)</span></h2>
+            </div>
+          <!-- </a> -->
+        </div>
+      <?php } ?>
+
+      <hr>
+    </div>
+  </div>
+
   <!-- ============== Footer -->
-  <?php include('../inc/footer.php');
+  <?php include('../inc/footer.php'); ?>

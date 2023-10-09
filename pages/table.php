@@ -2,9 +2,12 @@
 
 include('../admin/config.php');
 
+
+
 // Fetching the table
-$query_KLtable = "SELECT * FROM KLtable";
+$query_KLtable = "SELECT * FROM KLtable ORDER BY pts DESC";
 $query_KLtable_run = mysqli_query($conn, $query_KLtable);
+$num_of_teams = mysqli_num_rows($query_KLtable_run);
 
 ?>
 
@@ -35,9 +38,6 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
 
   </div>
 
-
-
-
   <div class="row mt-4 mx-1 kltable" style="border: 2px solid red;">
     <div class="col-lg-12">
       <!-- table as standing -->
@@ -64,7 +64,7 @@ $query_KLtable_run = mysqli_query($conn, $query_KLtable);
               ?>
 
                 <tr>
-                  <td scope="row"> <?= $row['position']; ?> <span>
+                  <td scope="row">  <span>
                       <img class="league-table-img ms-4" src="../assets/img/teams/<?= $row['club'] ?>.png" alt=""> </span>
                   </td>
                   <td><?= $row['club']; ?></td>

@@ -35,40 +35,31 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
     </div>
 
     <div class="row mt-4 mx-1" style="border: 2px solid red;">
+        <div class="row">
+            <?php while ($team = mysqli_fetch_assoc($query_clubs_run)) { ?>
+                <div class="col-lg-3">
 
-
-
-
-            <div class="container" data-aos="fade-up">
-
-                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-                    <?php while ($team = mysqli_fetch_assoc($query_clubs_run)) { ?>
-                        <div class="col-lg-3">
-
-                            <div class="card teamcard">
-                                <div class="cardheader">
-                                    <img src="../assets/img/hero1.jpg" alt="">
-                                </div>
-                                <div class="avatar">
-                                    <img alt="" src="../assets/img/teams/<?= $team['logo']; ?>">
-                                </div>
-                                <div class="info">
-                                    <h2><?= $team['name']; ?></h2>
-                                    <h3>EST: <span>2012</span></h3>
-                                </div>
-
-                                <div style="margin-bottom: 10px;">
-                                    <a class="btn btn-danger" href="single-team.php?team=<?= $team['name']; ?>">More</a>
-                                </div>
-                            </div>
-
+                    <div class="card teamcard">
+                        <div class="cardheader">
+                            <img src="../assets/img/wallpaper<?=$team['name'];?>.png" alt="<?=$team['name'];?> FC">
+                            
                         </div>
-                    <?php } ?>
+                        <div class="avatar">
+                            <img alt="" src="../assets/img/teams/<?= $team['logo']; ?>">
+                        </div>
+                        <div class="info">
+                            <h2><?= $team['name']; ?></h2>
+                            <h3>EST: <span>2012</span></h3>
+                        </div>
+
+                        <div style="margin-bottom: 10px;">
+                            <a class="btn px-4" href="single-team.php?team=<?= $team['name']; ?>">More</a>
+                        </div>
+                    </div>
 
                 </div>
-
-            </div>
+            <?php } ?>
+        </div>
 
     </div>
     <!-- ==================End of hero div================== -->

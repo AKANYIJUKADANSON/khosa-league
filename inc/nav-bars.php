@@ -25,8 +25,7 @@
 
         <!-- <h1 class="logo"><a href="index.html">Dewi</a></h1> -->
         <a href="index.html" class="logo d-flex">
-
-          <span class="d-lg-block text-success">KHOSA LEAGUE</span>
+          <span class="logo-text">KHOSA LEAGUE</span>
         </a>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -38,12 +37,12 @@
             <li><a class="nav-link scrollto" href="../pages/table.php">Table</a></li>
             <li><a class="nav-link scrollto " href="../pages/teams.php">Clubs</a></li>
             <li><a class="nav-link scrollto" href="../pages/players.php">Players</a></li>
-            <li><a class="nav-link scrollto" href="#">News</a></li>
+            <li><a class="nav-link scrollto" href="../pages/news.php">News</a></li>
             <li><a class="nav-link scrollto" href="#">Gallery</a></li>
             <li><a class="nav-link scrollto" href="../pages/about.php">About Us</a></li>
 
-            <a class="getstarted scrollto" href="#">Login</a>
-            <a class="getstarted scrollto" href="#">Register</a>
+            <a class="btn getstarted" href="#">Login</a>
+            <a class="btn getstarted" href="#">Register</a>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

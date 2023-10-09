@@ -1,7 +1,7 @@
-
-
+    
+    
     <!-- ==================Start of foorter div================== -->
-    <footer class="footer bg-success">
+    <footer class="footer">
         <div class="footer_top">
             <div class="container text-white">
                 <div class="row">
@@ -11,7 +11,7 @@
                                 Important Links
                             </h2>
                             <ul class="imprtant-links">
-                            <li><a class="important-link" href="../pages/index.php">Home</a> </li>
+                                <li><a class="important-link" href="../pages/index.php">Home</a> </li>
                                 <li><a class="important-link" href="../pages/teams.php">Teams</a></li>
                                 <li><a class="important-link" href="../pages/table.php">Table</a></li>
                                 <li><a class="important-link" href="#">Results</a></li>
@@ -20,7 +20,7 @@
                                 <li><a class="important-link" href="../pages/about.php">About Us</a> </li>
                                 <li><a class="important-link" href="#">Contact Us</a></li>
                             </ul>
-                            
+
 
                         </div>
                     </div>
@@ -46,11 +46,11 @@
 
                             <p class="newsletter_text">Stay connect with us to get exclusive news and updates!</p>
 
-                            <form action="about.php" class="newsletter_form">
-                                <input type="email" placeholder="Enter your mail" name="subsription_email" required>
-                                <button type="submit">SUBSCRIBE</button>
+                            <form action="#" class="newsletter_form">
+                                <input class="px-2" type="email" placeholder="Enter your mail" name="subsription_email" required>
+                                <button class="px-2" type="submit">SUBSCRIBE</button>
                             </form>
-                            
+
 
                         </div>
                     </div>
@@ -94,33 +94,39 @@
                             Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> 
+                            </script>
                             All rights reserved | <a href="#">KHOSA League</a>
-                        
+
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- ==================Start of foorter div================== -->
 
-</body>
 
-<!-- Vendor JS Files -->
-<script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/vendor/chart.js/chart.min.js"></script>
-<script src="../assets/vendor/echarts/echarts.min.js"></script>
-<script src="../assets/vendor/quill/quill.min.js"></script>
-<script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="../assets/vendor/php-email-form/validate.js"></script>
 
-<!-- Template Main JS File -->
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/navbartoggle.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/chart.js/chart.min.js"></script>
+    <script src="../assets/vendor/echarts/echarts.min.js"></script>
+    <script src="../assets/vendor/quill/quill.min.js"></script>
+    <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="../assets/vendor/php-email-form/validate.js"></script>
 
-</body>
+    <!-- Template Main JS File -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbartoggle.js"></script>
 
-</html>
+
+    <!-- Swiper.bundle.min.js -->
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+
+    <!-- custom swiper js -->
+    <script src="../assets/js/custom.js"></script>
+
+    </body>
+
+    </html>

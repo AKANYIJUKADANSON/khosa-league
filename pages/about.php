@@ -1,10 +1,10 @@
 <?php
 
-    include('../admin/config.php');
+include('../admin/config.php');
 
-    // Geting clubs data
-    $query_clubs = "SELECT * FROM clubs";
-    $query_clubs_run = mysqli_query($conn, $query_clubs);
+// Geting clubs data
+$query_clubs = "SELECT * FROM clubs";
+$query_clubs_run = mysqli_query($conn, $query_clubs);
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +20,6 @@
 </head>
 
 <body>
-    <!-- <div class=" mb-4" style="border: 2px solid green;">
-        <?php //include('../inc/nav-bars.php'); ?>
-        <div class="la-container-about d-flex justify-content-center">
-            <h1 class="text-white heading-text-about">About</h1>
-        </div>
-    </div> -->
 
     <div class="hero-mini mb-4" style="border: 2px solid green;">
         <?php include('../inc/nav-bars.php'); ?>
@@ -35,9 +29,9 @@
 
     <div class="la-container-about">
         <div class="d-flex justify-content-center">
-            <h1 class="text-white heading-text-about">About</h1> 
+            <h1 class="text-white heading-text-about">About</h1>
         </div>
-               
+
     </div>
 
     <!-- ==================End of hero div================== -->
@@ -77,33 +71,41 @@
 
 
 
-    <section id="portfolio" class="portfolio">
+        <!-- <section id="portfolio" class="portfolio"> -->
 
         <div class="section-title text-center">
-            <h2 class="w-500 my-4">Clubs</h2>
+            <div class="card-title text-center"><h1><b>Clubs</b></h1></div>
             <hr class="w-500 mb-4">
         </div>
 
         <div class="container" data-aos="fade-up">
 
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="row">
 
-                <?php while($team = mysqli_fetch_assoc($query_clubs_run)){?>
-                    <div class="col-lg-4 col-md-6 portfolio-item">
-                        <div class="portfolio-wrap">
-                            <img src="../assets/img/teams/<?=$team['logo']; ?>" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h2 class="text-white"><?=$team['name']; ?></h2>
-                                <h5 class="text-white">EST <span><b><?=$team['est']; ?></b></span></h5>
+                <?php while ($team = mysqli_fetch_assoc($query_clubs_run)) { ?>
+                    
+                        <div class="col-lg-3">
+                        <a href="single-team.php?team=<?= $team['name']; ?>">
+                            <div class="card d-flex" style="background-color: #e9e9e9;">
+                                <div class="card-header d-flex justify-content-center">
+                                    <img class="m-4" width="200" height="220" src="../assets/img/teams/<?= $team['logo']; ?>" alt="">
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="text-dark my-4">
+                                        <h2><?= $team['name']; ?> FC</h2>
+                                        <h5>EST <span><b><?= $team['est']; ?></b></span></h5>
+                                    </div>
+                                </div>
                             </div>
+                        </a>
                         </div>
-                    </div>
                 <?php } ?>
 
             </div>
 
         </div>
-    </section>
+        <!-- </section> -->
 
     </div>
     <!-- ==================End of hero div================== -->
