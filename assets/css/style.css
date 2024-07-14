@@ -5,8 +5,13 @@
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'Gill Sans';
+  src: url(../font/Gill_Sans.ttf);
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Gill Sans", sans-serif;
   /* background: #0051f3; */
   color: #444444;
 }
@@ -22,7 +27,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: "Gill Sans", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -190,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 18px;
   font-weight: 500;
   color: #012970;
-  font-family: "Poppins", sans-serif;
+  font-family: "Gill Sans", sans-serif;
 }
 .card-title span {
   color: #899bbd;
@@ -208,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Alerts */
 .alert-heading {
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: "Gill Sans", sans-serif;
   font-size: 20px;
 }
 
@@ -253,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Breadcrumbs */
 .breadcrumb {
   font-size: 14px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Gill Sans", sans-serif;
   color: #899bbd;
   font-weight: 600;
 }
@@ -309,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 26px;
   font-weight: 700;
   color: #012970;
-  font-family: "Nunito", sans-serif;
+  font-family: "Gill Sans", sans-serif;
 }
 
 .header {

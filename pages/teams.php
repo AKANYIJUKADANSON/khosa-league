@@ -15,34 +15,30 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
     <title>KHOSA | Teams</title>
 
     <?php include('../inc/header-links.php'); ?>
-
-
 </head>
 
 <body>
-    <div class="hero-mini mb-4" style="border: 2px solid green;">
+    <div class="hero-mini mb-4">
         <?php include('../inc/nav-bars.php'); ?>
-
     </div>
     <!-- ==================End of hero div================== -->
 
-    <div class="la-container d-block m-auto justify-content-center">
+    <div class="la-container-team d-block m-auto justify-content-center mb-4">
         <div class="d-flex justify-content-center">
             <h1 class="text-white heading-text-about"> Clubs</h1>
         </div>
-        <h4 class="d-flex justify-content-center text-white"> KHOSA League is made up of sixteen clubs</h4>
-
+        <h4 class="d-flex justify-content-center text-white"> Check on the KHOSA League teams</h4>
     </div>
 
-    <div class="row mt-4 mx-1" style="border: 2px solid red;">
+    <div class="row mt-4 mx-1">
         <div class="row">
             <?php while ($team = mysqli_fetch_assoc($query_clubs_run)) { ?>
                 <div class="col-lg-3">
 
                     <div class="card teamcard">
                         <div class="cardheader">
-                            <img src="../assets/img/wallpaper<?=$team['name'];?>.png" alt="<?=$team['name'];?> FC">
-                            
+                            <img class="team-wallpaper" src="../assets/img/wallpaper<?= $team['name'];?>.png" alt="<?=$team['name'];?> FC">
+                            <p><?php echo $team['name'] ?></p>
                         </div>
                         <div class="avatar">
                             <img alt="" src="../assets/img/teams/<?= $team['logo']; ?>">

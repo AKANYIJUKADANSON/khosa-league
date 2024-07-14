@@ -24,7 +24,7 @@
         <img style="height: 50px; width: 50px;" class="img-logo" src="../assets/img/logo.png" alt="">
 
         <!-- <h1 class="logo"><a href="index.html">Dewi</a></h1> -->
-        <a href="index.html" class="logo d-flex">
+        <a href="index.php" class="logo d-flex">
           <span class="logo-text">KHOSA LEAGUE</span>
         </a>
         <!-- Uncomment below if you prefer to use an image logo -->

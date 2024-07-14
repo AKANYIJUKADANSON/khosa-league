@@ -111,7 +111,7 @@ $query_players_run = mysqli_query($conn, $query_players);
 
                         <div class="meta-data">
                           <h2 class="card-title">Appearences::</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['appearences']; ?></h5>
+                          <h5 class="card-title text-secondary mx-2"><?= $player['appearances']; ?></h5>
                         </div>
 
                         <div class="meta-data">

@@ -2,12 +2,13 @@
 
 include('../admin/config.php');
 
-// fetch posts/news
-$query_news = "SELECT * FROM news ORDER BY 'created_on'";
-$query_news_run = mysqli_query($conn, $query_news);
 
 // Selected news id
 $news_id = $_GET['news_id'];
+
+// fetch posts/news
+$query_news = "SELECT * FROM news WHERE id != '$news_id' ORDER BY 'created_on'";
+$query_news_run = mysqli_query($conn, $query_news);
 
 // fetch results
 $single_news = "SELECT * FROM news WHERE id = '$news_id' ";
@@ -73,7 +74,7 @@ $news_row = mysqli_fetch_assoc($single_news_run);
                                 <div class="">
                                     <img height="90" width="90" class="m-auto rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['image_file']; ?>' alt="">
                                     <div class="d-block text-black">
-                                        <h4><b><span class="text-primary"><?= $rows['title']; ?></span></b></h4>
+                                        <h3><b><span><a class="text-primary" href="single-news.php?news_id=<?= $rows['id'] ?>"><?= $rows['title']; ?></a></span></b></h3>
 
                                         <p><?= $rows['body']; ?></p>
                                     </div>
@@ -82,7 +83,7 @@ $news_row = mysqli_fetch_assoc($single_news_run);
                                     <div class="justifly-content-start">
                                         <small>Last updated </small>
                                         <small class="text-muted"><?= $rows['created_on']; ?></small>
-                                        <a href="single-news.php?news_id=<?= $rows['id'] ?>" class="float-end btn btn-danger">Read</a>
+                                        <a href="single-news.php?news_id=<?= $rows['id'] ?>" class="float-end btn btn-sm btn-danger">Read</a>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +93,7 @@ $news_row = mysqli_fetch_assoc($single_news_run);
 
                 </div>
 
-                <div class="d-flex justify-content-center mb-4">
+                <div class="d-flex justify-content-center my-4">
                     <a href="news.php" class="btn btn-success">MORE<i class="bi bi-arrow-right mx-2"></i></a>
                 </div>
             </div>
@@ -107,7 +108,7 @@ $news_row = mysqli_fetch_assoc($single_news_run);
         <div class="card-title text-center">
             <h4><b>Our Sponsors</b></h4>
         </div>
-        <div class="d-flex justify-content-center bg-white m-2">
+        <div class="d-flex justify-content-center bg-white m-2 mb-4">
 
             <!-- <marquee class="marquee"> -->
             <?php

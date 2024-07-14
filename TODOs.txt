@@ -1,3 +1,23 @@
 
 ===================TODOs======================
+Add a model to display the sponsor's more details
 
+Make the navigation static on scroll
+
+Table sorting according to points and goal difference
+
+.php Rewriting rules
+
+Responsiveness for images
+
+Logging user access
+
+Page for Gallery Parsing images from google drive to the web
+
+Page for fixtures
+
+Page for news
+
+hosting - jubilee - +256782822323 - 200,000 (3 years)  khosaleague.com
+
+google forms for requesting data about teams

@@ -6,7 +6,7 @@ $selectedTeam = $_GET['team'];
 $query_clubs = "SELECT * FROM clubs";
 $query_clubs_run = mysqli_query($conn, $query_clubs);
 
-$query_gallery = "SELECT * FROM gallery WHERE club LIKE '%$selectedTeam%' LIMIT 8 ";
+$query_gallery = "SELECT * FROM gallery WHERE team LIKE '%$selectedTeam%' LIMIT 8 ";
 $query_gallery_run = mysqli_query($conn, $query_gallery);
 
 // get data for the selected team

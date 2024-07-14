@@ -63,7 +63,7 @@
                                 <div class="card py-2">
                                     <div class="card-body">
                                         <div class="d-flex">
-                                            <img height="150" width="150" class="me-2 rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['image_file']; ?>' alt="">
+                                            <img height="150" width="150" class="me-2 rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['file_name']; ?>' alt="">
                                             <div class="d-block text-black">
                                                 <h4><b><span class="text-primary"><?= $rows['title']; ?></span></b></h4>
 

@@ -121,7 +121,7 @@
             <div class="card-body result">
               <div class="float-start pt-2">
                 <span class="text-center px-1"><?= $results['team1']; ?> FC</span>
-                <span style="align-items: center;"><img class="rounded-circle" style="height: 40px; width: 40px;" src="../assets/img/teams/<?= $results['team1']; ?>.png" alt=""></span>
+                <span style="align-items: center;"><img class="rounded-circle" style="height: 30px; width: 30px;" src="../assets/img/teams/<?= $results['team1']; ?>.png" alt=""></span>
               </div>
 
               <div style="border-radius: 5px;" class="float-start  btn-success mt-3 mx-2 px-2">
@@ -132,7 +132,7 @@
 
               <div class="float-start pt-2">
                 <span style="text-align: center;" class="px-1"><?= $results['team2']; ?> FC</span>
-                <span style="align-items: center;"><img style="height: 40px; width: 40px; border-radius: 50%;" src="../assets/img/teams/<?= $results['team2']; ?>.png" alt=""></span>
+                <span style="align-items: center;"><img style="height: 30px; width: 30px; border-radius: 50%;" src="../assets/img/teams/<?= $results['team2']; ?>.png" alt=""></span>
               </div>
 
             </div>
@@ -145,20 +145,30 @@
           <h4 class="card-title card-title-fixtures text-white ps-4"><b>FIXTURES</b></h4>
 
           <?php while ($fixtures = mysqli_fetch_assoc($query_fixtures_run)) { ?>
-            <div class="card-body fixture">
+            <div class="card-body fixture d-flex">
+
+
+
+
               <div class="float-start pt-2">
                 <span style="text-align: center;" class="px-1"><?= $fixtures['team1']; ?> FC</span>
-                <span style="align-items: center;"><img style="height: 40px; width: 40px; border-radius: 50%;" src="../assets/img/teams/<?= $fixtures['team1']; ?>.png" alt=""></span>
+                <span style="align-items: center;"><img style="height: 35px; width: 35px; border-radius: 50%;" src="../assets/img/teams/<?= $fixtures['team1']; ?>.png" alt=""></span>
               </div>
 
-              <div style="border-radius: 5px;" class="float-start  btn-danger mt-3 mx-4 px-2">
-                <span class="">VS</span>
+              <div style="border-radius: 5px; height: 25px" class="float-start  btn-danger mt-3 mx-2 px-2 ">
+                <span class="pb-2">VS</span>
               </div>
 
               <div class="float-start pt-2">
                 <span style="text-align: center;" class="px-1"><?= $fixtures['team2']; ?> FC</span>
-                <span style="align-items: center;"><img style="height: 40px; width: 40px; border-radius: 50%;" src="../assets/img/teams/<?= $fixtures['team2']; ?>.png" alt=""></span>
+                <span style="align-items: center;"><img style="height: 35px; width: 35px; border-radius: 50%;" src="../assets/img/teams/<?= $fixtures['team2']; ?>.png" alt=""></span>
               </div>
+
+
+
+
+
+
 
             </div>
           <?php } ?>
@@ -254,7 +264,7 @@
               <div class="card py-2">
                 <div class="card-body">
                   <div class="d-flex">
-                    <img height="150" width="150" class="me-2 rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['image_file']; ?>' alt="">
+                    <img height="150" width="150" class="me-2 rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['file_name']; ?>' alt="">
                     <div class="d-block text-black">
                       <h3><b><a href="single-news.php?news_id=<?= $rows['id'] ?>" class="news-title"><?= $rows['title']; ?></a></b></h3>
 
@@ -339,7 +349,7 @@
           <!-- <a href="single-team.php?team=<?php //echo $sponsor['sponsor']; ?>"> -->
             <div class="bg-transparent d-flex align-items-center flex-column">
                 <img class="rounded" width="100" height="100" src="../assets/img/sponsors/<?= $sponsor['logo']; ?>" alt="">
-                  <h2 class="text-center text-dark card-title"><?=$sponsor['sponsor'];?> <span>(<b><?= $sponsor['team'];?></b>)</span></h2>
+                  <h2 class="text-center text-dark card-title"><?=$sponsor['sponsor'];?> <span>(<b><?= $sponsor['team'];?> FC</b>)</span></h2>
             </div>
           <!-- </a> -->
         </div>
