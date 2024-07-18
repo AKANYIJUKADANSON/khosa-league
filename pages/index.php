@@ -3,7 +3,7 @@
   include('../admin/config.php');
 
   // fetch posts/news
-  $query_news = "SELECT * FROM news ORDER BY 'created_on' LIMIT 2";
+  $query_news = "SELECT * FROM news ORDER BY created_on DESC LIMIT 2";
   $query_news_run = mysqli_query($conn, $query_news);
 
   // fetch results
@@ -139,7 +139,7 @@
           <?php } ?>
         </div>
 
-        <!--====================================== Fixtures ==================================-->
+        <!--========================== Fixtures ==================================-->
         <div class="card  result-fixture">
           <!-- <div class="bg-success"> -->
           <h4 class="card-title card-title-fixtures text-white ps-4"><b>FIXTURES</b></h4>
@@ -163,11 +163,6 @@
                 <span style="text-align: center;" class="px-1"><?= $fixtures['team2']; ?> FC</span>
                 <span style="align-items: center;"><img style="height: 35px; width: 35px; border-radius: 50%;" src="../assets/img/teams/<?= $fixtures['team2']; ?>.png" alt=""></span>
               </div>
-
-
-
-
-
 
 
             </div>
@@ -264,7 +259,7 @@
               <div class="card py-2">
                 <div class="card-body">
                   <div class="d-flex">
-                    <img height="150" width="150" class="me-2 rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['file_name']; ?>' alt="">
+                    <img style="height: 150px; width: 150" class="me-2 rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['file_name']; ?>' alt="">
                     <div class="d-block text-black">
                       <h3><b><a href="single-news.php?news_id=<?= $rows['id'] ?>" class="news-title"><?= $rows['title']; ?></a></b></h3>
 

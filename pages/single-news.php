@@ -43,7 +43,7 @@ $news_row = mysqli_fetch_assoc($single_news_run);
         <!-- Left side columns -->
         <div class="col-lg-5 mb-4">
             <div class="row">
-                <img height="500vh" width="100%" src="../assets/img/newsAndUpdates/<?= $news_row['image_file']; ?>" alt="" srcset="">
+                <img height="500vh" width="100%" src="../assets/img/newsAndUpdates/<?= $news_row['file_name']; ?>" alt="">
             </div>
         </div>
 
@@ -72,7 +72,7 @@ $news_row = mysqli_fetch_assoc($single_news_run);
                         <div class="card py-2">
                             <div class="card-body">
                                 <div class="">
-                                    <img height="90" width="90" class="m-auto rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['image_file']; ?>' alt="">
+                                    <img height="90" width="90" class="m-auto rounded-circle" src='../assets/img/newsAndUpdates/<?= $rows['file_name']; ?>' alt="">
                                     <div class="d-block text-black">
                                         <h3><b><span><a class="text-primary" href="single-news.php?news_id=<?= $rows['id'] ?>"><?= $rows['title']; ?></a></span></b></h3>
 
