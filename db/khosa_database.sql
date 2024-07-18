@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2024 at 05:09 PM
+-- Generation Time: Jul 18, 2024 at 09:24 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -110,8 +110,7 @@ CREATE TABLE `fixtures` (
 INSERT INTO `fixtures` (`id`, `team1`, `team2`, `date`, `time`) VALUES
 (0, 'Benghazi', 'Mallet', '2024-07-17', '23:54:00'),
 (1, 'Karere', 'Kataara', '2023-09-16', '02:20:00'),
-(2, 'Mallet', 'Bulembia', '2023-09-16', '02:20:00'),
-(3, 'Giggaz', 'Benghazi', '2023-09-17', '02:20:00');
+(2, 'Mallet', 'Bulembia', '2023-09-16', '02:20:00');
 
 -- --------------------------------------------------------
 
@@ -189,8 +188,9 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `created_on`, `body`, `file_name`, `title`) VALUES
-(1, '2024-07-14', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus veritatis doloribus magni, reprehenderit unde fugiat molestiae perferendis esse neque et eum nisi delectus quo, eos consequatur voluptas est impedit obcaecati?\r\n', 'IMG-20230926-WA0013.', 'Problem'),
-(2, '2024-07-14', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus veritatis doloribus magni, reprehenderit unde fugiat molestiae perferendis esse neque et eum nisi delectus quo, eos consequatur voluptas est impedit obcaecati?\r\n', 'IMG-20230926-WA0013.jpg', 'Problem');
+(1, '2024-07-16', 'The Fridge Guy signs another contract as an official sponsor for Gwajwa FC', 'bob.png', 'Official sponsor for Gwajwa FC'),
+(2, '2024-07-14', 'Edgar is set to play for Gwajwa FC in the season 6 games at a deal of $100', 'transfer_edgar.jpg', 'Transfers - Edgar aka Omubagi'),
+(3, '2024-07-17', 'KHOSA League season six is set to begin on 4th August with all the teams participating, the likes of Gwajwa, Karere, Warriors, Giggz,  Elites, Enogo FC, Mallet, Kataara, Imaajo, Historicals, Akasayi, Benghazi, Bulembia, Whizzy and more', 'season6.jpg', 'KHOSA League Season 6');
 
 -- --------------------------------------------------------
 
@@ -227,18 +227,20 @@ INSERT INTO `players` (`id`, `image`, `age`, `appearances`, `shirt_no`, `goals`,
 CREATE TABLE `results` (
   `id` int(50) NOT NULL,
   `team1` varchar(100) NOT NULL,
-  `result_team_1` int(7) NOT NULL,
+  `result_team_1` int(50) NOT NULL,
   `team2` varchar(50) NOT NULL,
-  `result_team_2` int(7) NOT NULL
+  `result_team_2` int(50) NOT NULL,
+  `result_date` varchar(50) NOT NULL,
+  `game_week` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `results`
 --
 
-INSERT INTO `results` (`id`, `team1`, `result_team_1`, `team2`, `result_team_2`) VALUES
-(1, 'Gwajwa', 3, 'Benghazi', 4),
-(2, 'Bulembia', 1, 'Mallet', 1);
+INSERT INTO `results` (`id`, `team1`, `result_team_1`, `team2`, `result_team_2`, `result_date`, `game_week`) VALUES
+(4, 'Giggaz', 2, 'Benghazi', 3, '2024-07-31', 'Week 1'),
+(5, 'Bulembia', 1, 'Historicals', 10, '2024-08-01', 'Week 1');
 
 -- --------------------------------------------------------
 
@@ -342,7 +344,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `players`
@@ -354,7 +356,7 @@ ALTER TABLE `players`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sponsors`
