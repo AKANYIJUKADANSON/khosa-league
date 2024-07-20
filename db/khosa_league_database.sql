@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2024 at 09:24 AM
+-- Generation Time: Jul 20, 2024 at 02:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -57,41 +57,6 @@ INSERT INTO `clubs` (`id`, `name`, `logo`, `est`, `about`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekimeza`
---
-
-CREATE TABLE `ekimeza` (
-  `id` int(10) NOT NULL,
-  `position` int(10) NOT NULL,
-  `logo` varchar(100) NOT NULL,
-  `club` varchar(50) NOT NULL,
-  `MP` int(20) NOT NULL DEFAULT 0,
-  `W` int(20) NOT NULL,
-  `D` int(20) NOT NULL,
-  `L` int(20) NOT NULL,
-  `GD` int(10) NOT NULL,
-  `Pts` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ekimeza`
---
-
-INSERT INTO `ekimeza` (`id`, `position`, `logo`, `club`, `MP`, `W`, `D`, `L`, `GD`, `Pts`) VALUES
-(1, 1, 'gwajwa.png', 'Gwajwa FC', 0, 0, 0, 0, 2, 9),
-(2, 2, 'katara.png', 'Katara FC', 0, 0, 0, 0, 3, 8),
-(3, 3, 'Giggaz.png', 'Giggaz FC', 0, 0, 0, 0, 2, 7),
-(4, 4, 'enogo.png', 'Enogo FC', 0, 0, 0, 0, 0, 6),
-(5, 5, 'Akasayi.png', 'Akasayi FC', 0, 0, 0, 0, 1, 5),
-(6, 7, 'Historicals.png', 'Historicals FC', 0, 0, 0, 0, 2, 4),
-(7, 8, 'Karere.png', 'Karere FC', 0, 0, 0, 0, 5, 3),
-(8, 9, 'Imaajo.png', 'Imaajo FC', 0, 0, 0, 0, 6, 3),
-(9, 10, 'Mallet.png', 'Mallet FC', 0, 0, 0, 0, 0, 2),
-(10, 11, 'Warriors.png', 'Warriors FC', 0, 0, 0, 0, -1, 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `fixtures`
 --
 
@@ -100,17 +65,18 @@ CREATE TABLE `fixtures` (
   `team1` varchar(50) NOT NULL,
   `team2` varchar(50) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL
+  `time` varchar(20) NOT NULL,
+  `week` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `fixtures`
 --
 
-INSERT INTO `fixtures` (`id`, `team1`, `team2`, `date`, `time`) VALUES
-(0, 'Benghazi', 'Mallet', '2024-07-17', '23:54:00'),
-(1, 'Karere', 'Kataara', '2023-09-16', '02:20:00'),
-(2, 'Mallet', 'Bulembia', '2023-09-16', '02:20:00');
+INSERT INTO `fixtures` (`id`, `team1`, `team2`, `date`, `time`, `week`) VALUES
+(0, 'Benghazi', 'Mallet', '2024-07-17', '06:30 pm', 'week1'),
+(1, 'Karere', 'Kataara', '2023-09-16', '5:00 pm', 'week2'),
+(2, 'Mallet', 'Bulembia', '2023-09-16', '5:30 pm', 'week1');
 
 -- --------------------------------------------------------
 
@@ -165,7 +131,7 @@ INSERT INTO `kltable` (`id`, `position`, `club`, `MP`, `W`, `D`, `L`, `GD`, `Pts
 (8, 8, 'Historicals', 0, 0, 0, 0, 0, 0),
 (9, 9, 'Imaajo', 0, 0, 0, 0, 0, 0),
 (10, 10, 'Karere', 0, 0, 0, 0, 0, 0),
-(11, 11, 'Kataara', 0, 0, 0, 0, 0, 0),
+(11, 11, 'Katara', 0, 0, 0, 0, 0, 0),
 (12, 12, 'Mallet', 0, 0, 0, 0, 0, 0),
 (13, 13, 'Warriors', 0, 0, 0, 0, 0, 0);
 
@@ -216,7 +182,9 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`id`, `image`, `age`, `appearances`, `shirt_no`, `goals`, `about`, `name`, `team`, `role`) VALUES
-(1, 'arindaJoshuaKato.png', 18, 0, 25, 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, autem, explicabo corrupti fugit magni molestiae fugiat est, quam beatae provident iusto sit blanditiis laborum repellendus unde? Sunt animi', 'Arinda K Joshua', 'Gwajwa', 'Winger');
+(1, 'arindaJoshuaKato.png', 18, 0, 25, 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, autem, explicabo corrupti fugit magni molestiae fugiat est, quam beatae provident iusto sit blanditiis laborum repellendus unde? Sunt animi', 'Arinda K Joshua', 'Gwajwa', 'Winger'),
+(2, 'cranmer.png', 23, 0, 5, 0, 'Humbl and team-working person with passion for soccer as a way of releasing stress.', 'Omwesigwa Cranmer', 'Gwajwa', 'Defender'),
+(4, 'jude.png', 23, 0, 6, 0, 'Cool bwoy but physically fit always to maintain my perfomance when it\'s ball time.', 'Ahimbisibwe Jude', 'Karere', 'Defender');
 
 -- --------------------------------------------------------
 
@@ -239,8 +207,33 @@ CREATE TABLE `results` (
 --
 
 INSERT INTO `results` (`id`, `team1`, `result_team_1`, `team2`, `result_team_2`, `result_date`, `game_week`) VALUES
-(4, 'Giggaz', 2, 'Benghazi', 3, '2024-07-31', 'Week 1'),
-(5, 'Bulembia', 1, 'Historicals', 10, '2024-08-01', 'Week 1');
+(1, 'Mallet', 4, 'enogo', 3, '2024-07-16', 'week5'),
+(2, 'Akasayi', 1, 'Historicals', 2, '06/08/2024', 'week2'),
+(4, 'Giggaz', 2, 'Benghazi', 3, '2024-07-31', 'week1'),
+(5, 'Bulembia', 1, 'Historicals', 10, '2024-08-01', 'week1'),
+(10, 'Gwajwa', 3, 'Elites', 1, '2024-07-16', 'week3'),
+(11, 'Katara', 0, 'Imaajo', 2, '21/07/2024', 'week4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `socialnews`
+--
+
+CREATE TABLE `socialnews` (
+  `id` int(7) NOT NULL,
+  `embed_link` longtext NOT NULL,
+  `platform` varchar(100) NOT NULL,
+  `created_on` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `socialnews`
+--
+
+INSERT INTO `socialnews` (`id`, `embed_link`, `platform`, `created_on`) VALUES
+(1, '<blockquote class=\"twitter-tweet\" data-conversation=\"none\" data-dnt=\"true\">\r\n            <p lang=\"en\" dir=\"ltr\">It&#39;s official Equinox Sport and Fitness Centre in kulambiro along the ring road towards\r\n                the Najjera slope is our new home for season 6. Let&#39;s all show up in big numbers at our new home.<a\r\n                    href=\"https://twitter.com/hashtag/KhosaLeagueSn6?src=hash&amp;ref_src=twsrc%5Etfw\">#KhosaLeagueSn6</a>. <a\r\n                    href=\"https://t.co/mcRtVwAOAf\">pic.twitter.com/mcRtVwAOAf</a></p>&mdash; KHOSA LEAGUE 🐝⚽️ (@khosaleague) <a\r\n                href=\"https://twitter.com/khosaleague/status/1813461800207188225?ref_src=twsrc%5Etfw\">July 17, 2024</a>\r\n        </blockquote>\r\n        <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>', 'twitter', '2024-07-18'),
+(2, '<blockquote class=\"twitter-tweet\" data-media-max-width=\"560\">\r\n            <p lang=\"en\" dir=\"ltr\">📌This August the KHOSA LEAGUE Season 6 returns.!!!<br>Aren&#39;t you excited for yet another\r\n                banger of good football, vibes and inshallah.<br>Here we go!!!!!<a\r\n                    href=\"https://twitter.com/hashtag/KhosaLeagueSn6?src=hash&amp;ref_src=twsrc%5Etfw\">#KhosaLeagueSn6</a>. <a\r\n                    href=\"https://t.co/wKXpv2VPys\">pic.twitter.com/wKXpv2VPys</a></p>&mdash; KHOSA LEAGUE 🐝⚽️ (@khosaleague) <a\r\n                href=\"https://twitter.com/khosaleague/status/1810900425584865737?ref_src=twsrc%5Etfw\">July 10, 2024</a>\r\n        </blockquote>\r\n        <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>', 'twitter', '2024-06-29');
 
 -- --------------------------------------------------------
 
@@ -261,10 +254,11 @@ CREATE TABLE `sponsors` (
 
 INSERT INTO `sponsors` (`id`, `sponsor`, `logo`, `team`) VALUES
 (1, 'Coco World Limited', 'cocoaWorldLimited.png', 'Bulembia'),
-(2, 'Home And Away Sports Ltd', 'homeAndAwaySportsLtd.png', 'Historical'),
+(2, 'Home And Away Sports', 'homeAndAwaySportsLtd.png', 'Historical'),
 (3, 'Make Merry Events', 'makeMerryEvents.png', 'Karere'),
 (4, 'Kajie Safaris', 'kajieSafaris.png', 'Elites'),
-(6, 'The Fridge Guy', 'the-fridge-guy.jpg', 'Gwajwa');
+(6, 'The Fridge Guy', 'the-fridge-guy.jpg', 'Gwajwa'),
+(7, 'DanTechx', 'dantechx.png', 'Cliff');
 
 --
 -- Indexes for dumped tables
@@ -277,12 +271,6 @@ ALTER TABLE `clubs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ekimeza`
---
-ALTER TABLE `ekimeza`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `fixtures`
 --
 ALTER TABLE `fixtures`
@@ -292,6 +280,12 @@ ALTER TABLE `fixtures`
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kltable`
+--
+ALTER TABLE `kltable`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -313,6 +307,12 @@ ALTER TABLE `results`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `socialnews`
+--
+ALTER TABLE `socialnews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sponsors`
 --
 ALTER TABLE `sponsors`
@@ -329,16 +329,16 @@ ALTER TABLE `clubs`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `ekimeza`
---
-ALTER TABLE `ekimeza`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `kltable`
+--
+ALTER TABLE `kltable`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -350,19 +350,25 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `socialnews`
+--
+ALTER TABLE `socialnews`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sponsors`
 --
 ALTER TABLE `sponsors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
