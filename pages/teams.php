@@ -27,7 +27,7 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
         <div class="d-flex justify-content-center">
             <h1 class="text-white heading-text-about"> Clubs</h1>
         </div>
-        <h4 class="d-flex justify-content-center text-white"> Check on the KHOSA League teams</h4>
+        <!-- <h4 class="d-flex justify-content-center text-white"> Check on the KHOSA League teams</h4> -->
     </div>
 
     <div class="row mt-4 mx-1">

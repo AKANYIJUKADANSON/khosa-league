@@ -10,7 +10,7 @@
 .swiper-slide{
     border-radius: 25px;
     padding-bottom: 20px;
-    background-color: rgb(237, 237, 237);
+    /* background-color: rgb(237, 237, 237); */
 }
 
 iframe{

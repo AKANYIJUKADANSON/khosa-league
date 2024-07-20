@@ -6,6 +6,10 @@
     $query_news = "SELECT * FROM news ORDER BY created_on DESC";
     $query_news_run = mysqli_query($conn, $query_news);
 
+        // Social links
+        $socialNews = "SELECT * FROM socialnews";
+        $query_socialNews_run = mysqli_query($conn, $socialNews);
+
     // fetch results
     $query_results = "SELECT * FROM results";
     $query_results_run = mysqli_query($conn, $query_results);
@@ -33,28 +37,30 @@
 </head>
 
 <body>
-  <div class="hero-mini mb-4" style="border: 2px solid green;">
+  <div class="hero-mini mb-4">
     <?php include('../inc/nav-bars.php'); ?>
 
   </div>
   <!-- ==================End of hero div================== -->
 
-  <div class="d-block m-auto justify-content-center">
-    <div class="d-flex justify-content-center">
-      <h2 class="text-center text-dark mb-4 mt-4">Latest News</h2>
+
+
+    <div class="la-container-news d-block m-auto justify-content-center">
+        <div class="d-flex justify-content-center">
+        <h2 class="text-center text-white heading-text-about mb-4">Blog</h2>
+        </div>
+        <h4 class="d-flex justify-content-center text-white">Check on the latest news about the KHOSA League</h4>
     </div>
 
-  </div>
 
 
-        <!-- <div style="background-color: rgb(199, 236, 204); "> -->
             <!-- ==================Start of table & Posts div================== -->
             <div class="row px-1 pt-4">
                 <!-- Left side columns -->
-                <div class="col-lg-7 me-1" style="border: 2px solid red;">
+                <div class="col-lg-8 ps-4 overflow-auto" >
 
                     <!-- table as standing -->
-                    <h1 class="card-title">Popular</h1>
+                     <h3 class="card-title fs-4 text-decoration-none text-primary"><b>Popular</b></h3>
 
                     <!-- <div class="card bg-white">
                         <div class="card-body pb-0"> -->
@@ -91,11 +97,19 @@
                     
                 </div>
 
-                <!-- Right side columns -->
-                <div class="col-lg-4 home-news" style="border: 2px solid red;">
-                    <!-- News & Updates Traffic -->
+                <!-- ~~~~~~~~~~~~Right side Social Media News ~~~~~~~~~~~~~~~~~~ -->
+                <div class="col-lg-4 home-news">
+                    <h3 class="card-title fs-4 text-decoration-none ms-4 text-primary"><b><i class="bi bi-twitter me-2"></i>Tweets</b></h3>
 
-                    <!-- End News & Updates -->
+                        <div class="card-body overflow-auto shadow-lg pt-2" style="height: 160vh">
+
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <a type="button" class="twitter-timeline" data-dnt="true" href="https://twitter.com/khosaleague?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </div>
+                            </div>
+
+                        </div>
                 </div>
 
             </div>

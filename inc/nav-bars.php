@@ -21,28 +21,26 @@
     <div class="header d-flex align-items-center bg-white">
       <div class="container d-flex align-items-center justify-content-between  p-1">
 
-        <img style="height: 50px; width: 50px;" class="img-logo" src="../assets/img/logo.png" alt="">
+        <div class="d-flex">
+          <img style="height: 50px; width: 50px;" class="img-logo" src="../assets/img/logo.png" alt="">
+          <h1><span class="logo-tex text-primary fs-3 fw-bolde"><b>KHOSA LEAGUE</b></span></h1>
+        </div>
 
-        <!-- <h1 class="logo"><a href="index.html">Dewi</a></h1> -->
-        <a href="index.php" class="logo d-flex">
-          <span class="logo-text">KHOSA LEAGUE</span>
-        </a>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+ 
+        
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto" href="../pages/index.php">Home</a></li>
-            <li><a class="nav-link scrollto" href="#">Fixtures</a></li>
-            <li><a class="nav-link scrollto" href="../pages/table.php">Table</a></li>
-            <li><a class="nav-link scrollto " href="../pages/teams.php">Clubs</a></li>
-            <li><a class="nav-link scrollto" href="../pages/players.php">Players</a></li>
-            <li><a class="nav-link scrollto" href="../pages/news.php">News</a></li>
-            <li><a class="nav-link scrollto" href="#">Gallery</a></li>
-            <li><a class="nav-link scrollto" href="../pages/about.php">About Us</a></li>
+            <li><a class="nav-link" href="../pages/index.php">Home</a></li>
+            <li><a class="nav-link" href="../pages/fixresults.php">Fixtures & results</a></li>
+            <li><a class="nav-link" href="../pages/table.php">Table</a></li>
+            <li><a class="nav-link" href="../pages/teams.php">Clubs</a></li>
+            <li><a class="nav-link" href="../pages/players.php">Players</a></li>
+            <li><a class="nav-link" href="../pages/news.php">News</a></li>
+            <li><a class="nav-link" href="#">Gallery</a></li>
+            <li><a class="nav-link" href="../pages/about.php">About Us</a></li>
 
-            <a class="btn getstarted" href="#">Login</a>
-            <a class="btn getstarted" href="#">Register</a>
+            <!-- <a class="btn getstarted" href="#">Login</a>
+            <a class="btn getstarted" href="#">Register</a> -->
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -50,3 +48,5 @@
       </div>
     </div>
     <!-- ==================End of Navigation div================== -->
+
+    

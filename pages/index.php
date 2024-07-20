@@ -3,15 +3,15 @@
   include('../admin/config.php');
 
   // fetch posts/news
-  $query_news = "SELECT * FROM news ORDER BY created_on DESC LIMIT 2";
+  $query_news = "SELECT * FROM news ORDER BY created_on DESC LIMIT 3";
   $query_news_run = mysqli_query($conn, $query_news);
 
   // fetch results
-  $query_results = "SELECT * FROM results";
+  $query_results = "SELECT * FROM results LIMIT 2";
   $query_results_run = mysqli_query($conn, $query_results);
 
   // fetch fixtures
-  $query_fixtures = "SELECT * FROM fixtures LIMIT 3";
+  $query_fixtures = "SELECT * FROM fixtures LIMIT 2";
   $query_fixtures_run = mysqli_query($conn, $query_fixtures);
 
   // Fetching the table
@@ -25,6 +25,10 @@
   // Fetching sponsors
   $query_sponsors = "SELECT * FROM sponsors";
   $query_sponsors_run = mysqli_query($conn, $query_sponsors);
+
+  // Fetching players
+  $query_players = "SELECT * FROM players LIMIT 3";
+  $query_players_run = mysqli_query($conn, $query_players);
 ?>
 
 
@@ -109,7 +113,6 @@
 
       <!-- Right side columns -->
       <div class="col-lg-4">
-
         <!--===================================== Results Card =============================-->
         <div class="card result-fixture">
           <!-- <div class="bg-success"> -->
@@ -137,6 +140,10 @@
 
             </div>
           <?php } ?>
+
+          <div class="d-flex justify-content-center my-2">
+            <a href="fixresults.php" class="btn btn-primary">View All<i class="mx-2 bi bi-arrow-right"></i></a>
+          </div>
         </div>
 
         <!--========================== Fixtures ==================================-->
@@ -167,7 +174,9 @@
 
             </div>
           <?php } ?>
-          <!-- </div> -->
+          <div class="d-flex justify-content-center my-2">
+            <a href="fixresults.php" class="btn btn-primary">View All<i class="mx-2 bi bi-arrow-right"></i></a>
+          </div>
         </div>
 
       </div>
@@ -178,7 +187,7 @@
   </div>
 
 
-  <!-- <div style="background-color: rgb(199, 236, 204); "> -->
+ 
   <div class="table-posts">
     <!-- ==================Start of table & Posts div================== -->
     <div class="row px-1 pt-4">
@@ -190,9 +199,7 @@
             <!-- table as standing -->
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Table</h5>
-
-                <!-- Table with hoverable rows -->
+                <h3 class="card-title fs-4 text-decoration-none "><b>Table</b></h3>
                 <table class="table table-hover">
                   <thead>
                     <tr>
@@ -239,12 +246,46 @@
             </div>
           </div>
 
-          <!-- <div class="col-12" style="border: 2px solid green">
-            <h1 class="card-title">Latest Videos</h1>
-            <div class="row">
+          <div class="col-12" style="">
+            <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title fs-4 text-decoration-none "><b>Featured Players</b></h3>
+                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
+                  <?php while ($players = mysqli_fetch_assoc($query_players_run)){ ?>
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img class="featured-player-img card-img-top" width="100%" height="225" src="../assets/img/players/<?=$players['image'];?>" alt="">
+                        <div class="card-body">
+                          <div class="my-2">
+                            <label class="fs-6"><b>Name:</b> <?=$players['name']?> </label><br>
+                            <label class="fs-6"><b>Team:</b> <?=$players['team']?></label><br>
+                            <label class="fs-6"><b>Appearences:</b> <?=$players['appearances']?></label><br>
+                            <label class="fs-6"><b>Goals:</b> <?=$players['goals']?></label><br>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <!-- <a href="players.php" type="button" class="btn btn-md btn-outline-secondary">View</a> -->
+                            </div>
+                            <!-- <small class="text-body-secondary">9 mins</small> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  <?php } ?>
+
+                  </div>
+                  
+
+                  <div class="d-flex justify-content-center">
+                  <a href="players.php" class="btn btn-primary">All Players<i class="mx-2 bi bi-arrow-right"></i></a>
+                </div>
+
+                </div>
             </div>
-          </div> -->
+          </div>
 
         </div>
       </div>
@@ -252,9 +293,9 @@
       <!-- Right side columns -->
       <div class="col-lg-5 home-news">
         <!-- News & Updates Traffic -->
-        <div class="card bg-white">
-          <div class="card-body pb-0">
-            <h5 class="card-title">News &amp; Updates</h5>
+        <div class="card bg-white mb-4">
+          <div class="card-body pb-0 my-">
+            <h3 class="card-title fs-4 text-decoration-none "><b>News &amp; Updates</b></h3>
             <?php while ($rows = mysqli_fetch_assoc($query_news_run)) { ?>
               <div class="card py-2">
                 <div class="card-body">
@@ -280,9 +321,10 @@
 
           </div>
 
-          <div class="d-flex justify-content-center mb-4">
+          <div class="d-flex justify-content-center my-4">
             <a href="news.php" class="btn">MORE POSTS<i class="bi bi-arrow-right mx-2"></i></a>
           </div>
+
         </div>
         <!-- End News & Updates -->
       </div>
@@ -292,17 +334,14 @@
   </div>
 
 
-  <!-- ====================SWIPER======================== -->
-  <div class="row col-md-12 mt-4 mx-1">
-    <!-- <div class="card-title"> -->
-    <h4><b>Latest Videos</b></h4>
-    <!-- </div> -->
-
+  <!-- ====================LATES VIDEOS SWIPER======================== -->
+  <!-- <div class="row col-md-12 mt-4 mx-1">
+    <h3 class="card-title fs-4 text-decoration-none "><b>Latest Videos</b></h3>
     <div class="slide-container swiper">
       <div class="slide-content">
         <div class="swiper-wrapper">
 
-          <?php while ($row = mysqli_fetch_assoc($query_clubs_run)) { ?>
+          <?php // while ($row = mysqli_fetch_assoc($query_clubs_run)) { ?>
 
             <div class="card swiper-slide">
               <div class="card-wrapper">
@@ -310,47 +349,44 @@
                   <source src="../assets/videos/gwajwa4.mp4" type="video/mp4">
                   <source src="../assets/videos/gwajwa4.0gg" type="video/ogg">
                 </video>
-                <!-- <img style="height: 100px; " src="../assets/img/hero2.jpg" alt="" srcset=""> -->
-                <!-- <div class="card-content"> -->
                 <p><u><?= $row['name']; ?></u></p>
-                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, ut deserunt? Eos quos obcaecati consectetur</p>
-
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic
+                </p>
                 <button class="btn btn-swiper">View</button>
-                <!-- </div> -->
-
               </div>
             </div>
-
-          <?php } ?>
+          <?php //} ?>
         </div>
       </div>
       <div class="swiper-button-next swiper-navBtn text-primary"></div>
       <div class="swiper-button-prev swiper-navBtntext-primary"></div>
       <div class="swiper-pagination text-primary"></div>
     </div>
-  </div>
+  </div> -->
 
 
   <!-- ====================Sponsors======================== -->
   <div class="row mt-4">
     <div class="card-title text-center">
       <h1><b>Sponsors</b></h1>
+      <hr class="hr mb-4" style="height: 4px; background-color: deepskyblue; margin: 0px 50px ">
     </div>
     
-    <div class="row col-md-12 mx-4">
-    <hr class="hr" style="height: 4px; background-color: deepskyblue;">
-      <?php while ($sponsor = mysqli_fetch_assoc($query_sponsors_run)) { ?>
-        <div class="col-lg-2 align-items-center">
-          <!-- <a href="single-team.php?team=<?php //echo $sponsor['sponsor']; ?>"> -->
-            <div class="bg-transparent d-flex align-items-center flex-column">
-                <img class="rounded" width="100" height="100" src="../assets/img/sponsors/<?= $sponsor['logo']; ?>" alt="">
-                  <h2 class="text-center text-dark card-title"><?=$sponsor['sponsor'];?> <span>(<b><?= $sponsor['team'];?> FC</b>)</span></h2>
+    <div class="slide-container swiper bg-transparent" >
+      <div class="slide-content bg-transparent" style="padding-right: 50px; background-color: green">
+        <div class="swiper-wrapper mx-4 bg-transparent" style="border: 2px solid deepskyblue">
+          <?php while ($sponsor = mysqli_fetch_assoc($query_sponsors_run)) { ?>
+            <div class="card swiper-slide bg-transparent">
+                  <div class="col">
+                    <div class="card-body my-auto pt-4 bg-transparent">
+                      <center><img class="rounded-circle" width="100" height="100" src="../assets/img/sponsors/<?= $sponsor['logo']; ?>" alt=""></center>
+                        <p class="fs-6 text-center"><?=$sponsor['sponsor'];?> <br> <span class="fs-4"> <?= $sponsor['team'];?> FC </span></p>
+                    </div>
+              </div>
             </div>
-          <!-- </a> -->
+          <?php } ?>
         </div>
-      <?php } ?>
-
-      <hr>
+      </div>
     </div>
   </div>
 

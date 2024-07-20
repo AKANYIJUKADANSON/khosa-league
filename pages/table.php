@@ -24,7 +24,7 @@ $num_of_teams = mysqli_num_rows($query_KLtable_run);
 </head>
 
 <body>
-  <div class="hero-mini mb-4" style="border: 2px solid green;">
+  <div class="hero-mini mb-4">
     <?php include('../inc/nav-bars.php'); ?>
 
   </div>

@@ -60,24 +60,25 @@
                         <div class="socail_links justify-content-center float-centre">
                             <ul class="d-flex justify-content-center">
                                 <li>
-                                    <a href="#">
-                                        <i class="bi bi-instagram"></i>
+                                    <a href="+256779264619">
+                                        <i class="bi bi-whatsapp fs-1"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="bi bi-twitter"></i>
+                                        <i class="bi bi-instagram fs-1"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="bi bi-facebook"></i>
+                                        <i class="bi bi-twitter fs-1"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="bi bi-linkedin"></i>
+                                        <i class="bi bi-facebook fs-1"></i>
                                     </a>
+
                                 </li>
                             </ul>
                         </div>
@@ -85,36 +86,20 @@
                 </div>
             </div>
         </div>
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            All rights reserved | <a href="#">KHOSA League</a>
 
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </footer>
-
-
 
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/chart.js/chart.min.js"></script>
-    <script src="../assets/vendor/echarts/echarts.min.js"></script>
     <script src="../assets/vendor/quill/quill.min.js"></script>
+    <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Data tables js -->
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="../assets/vendor/php-email-form/validate.js"></script>
+    <script src="../assets/js/tabledata.js"></script>
+
 
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>

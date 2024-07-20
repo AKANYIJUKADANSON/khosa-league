@@ -113,27 +113,11 @@ if (isset($_POST['add_result'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Fixture</title>
 
-    <!-- Favicons -->
     <link href="../assets/logos/favicon.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
-    <!-- <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> -->
-
-    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <!-- Vendor CSS Files -->
-    <!-- <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
-
-    <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
 
     <!-- Custom css -->
@@ -150,7 +134,7 @@ if (isset($_POST['add_result'])) {
             <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                 <!-- <div class="container"> -->
                     <div class="row justify-content-center" >
-                        <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center overflow-y-auto" style="border: 2px solid deepskyblue;">
+                        <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center overflow-y-auto">
 
                             <?php include('notif.php'); ?>
                             <!-- <img class="rounded-circle" src="../assets/img/favicon.png" style="height: 80px; width:80px;"> -->
@@ -258,7 +242,7 @@ if (isset($_POST['add_result'])) {
                         </div>
 
 
-                        <div class="col-lg-8 d-flex flex-column align-items-center justify-content-center" style="border: 2px solid red">
+                        <div class="col-lg-8 d-flex flex-column align-items-center justify-content-center">
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <h2 class="card-title">Latest Fixtures</h2>
