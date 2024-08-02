@@ -120,23 +120,6 @@ echo $statusMsg;
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -23,7 +23,7 @@
 
         <div class="d-flex">
           <img style="height: 50px; width: 50px;" class="img-logo" src="../assets/img/logo.png" alt="">
-          <h1><span class="logo-tex text-primary fs-3 fw-bolde"><b>KHOSA LEAGUE</b></span></h1>
+          <h1><span class="logo-tex text-primary fs-4 fw-bold"><b>KHOSA LEAGUE</b></span></h1>
         </div>
 
  
@@ -36,7 +36,7 @@
             <li><a class="nav-link" href="../pages/teams.php">Clubs</a></li>
             <li><a class="nav-link" href="../pages/players.php">Players</a></li>
             <li><a class="nav-link" href="../pages/news.php">News</a></li>
-            <li><a class="nav-link" href="#">Gallery</a></li>
+            <!-- <li><a class="nav-link" href="#">Gallery</a></li> -->
             <li><a class="nav-link" href="../pages/about.php">About Us</a></li>
 
             <!-- <a class="btn getstarted" href="#">Login</a>

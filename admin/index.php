@@ -24,17 +24,19 @@
         <div class="card-body">
             <h5 class="card-title">ADMIN DASHBOARD</h5>
 
-            <a href="add_results.php" type="button" class="btn btn-primary btn-lg mx-2"><i class="bi bi-alarm me-1 fs-3"></i> <span class="fs-2" >Add Results</span></a>
+            <a href="add_results.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-alarm me-1 fs-3"></i> <span class="fs-2">Add Results</span></a>
 
-            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2"><i class="bi bi-book-half me-1 fs-3"></i> <span class="fs-2" >Add Post</span></a>
+            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-book-half me-1 fs-3"></i> <span class="fs-2" >Add Post</span></a>
 
-            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2"><i class="bi bi-plus-square me-1 fs-3"></i> <span class="fs-2" >Add Result</span></a>
+            <a href="add-fixture.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-plus-square me-1 fs-3"></i> <span class="fs-2" >Add Fixture</span></a>
 
-            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2"><i class="bi bi-people-fill me-1 fs-3"></i> <span class="fs-2" >Add Club</span></a>
+            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-people-fill me-1 fs-3"></i> <span class="fs-2" >Add Club</span></a>
 
-            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2"><i class="bi bi-images me-1 fs-3"></i> <span class="fs-2" >Add To Gallery</span></a>
+            <!-- <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-images me-1 fs-3"></i> <span class="fs-2" >Add To Gallery</span></a> -->
 
-            <a href="update-fixture.php" type="button" class="btn btn-primary btn-lg mx-2"><i class="bi bi-plus-square me-1 fs-3"></i> <span class="fs-2" >Fixtures</span></a>
+            <a href="update-fixture.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-plus-square me-1 fs-3"></i> <span class="fs-2" >Fixtures</span></a>
+
+            <a href="add_player.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-people me-1 fs-3"></i> <span class="fs-2" >Add Players</span></a>
 
         </div>
     </div>

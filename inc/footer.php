@@ -85,6 +85,7 @@
                     </div>
                 </div>
             </div>
+            <a href="../admin/" target="blank">admin</a>
         </div>
 
     </footer>

@@ -1,19 +1,20 @@
 <?php
 
-include('../admin/config.php');
+    session_start();
+    include('../admin/config.php');
 
 
-// Selected news id
-$news_id = $_GET['news_id'];
+    // Selected news id
+    $news_id = $_GET['news_id'];
 
-// fetch posts/news
-$query_news = "SELECT * FROM news WHERE id != '$news_id' ORDER BY 'created_on'";
-$query_news_run = mysqli_query($conn, $query_news);
+    // fetch posts/news
+    $query_news = "SELECT * FROM news WHERE id != '$news_id' ORDER BY 'created_on'";
+    $query_news_run = mysqli_query($conn, $query_news);
 
-// fetch results
-$single_news = "SELECT * FROM news WHERE id = '$news_id' ";
-$single_news_run = mysqli_query($conn, $single_news);
-$news_row = mysqli_fetch_assoc($single_news_run);
+    // fetch results
+    $single_news = "SELECT * FROM news WHERE id = '$news_id' ";
+    $single_news_run = mysqli_query($conn, $single_news);
+    $news_row = mysqli_fetch_assoc($single_news_run);
 
 ?>
 
@@ -32,14 +33,14 @@ $news_row = mysqli_fetch_assoc($single_news_run);
 
 <body>
 
-    <div class="hero-mini mb-4" style="border: 2px solid green;">
+    <div class="hero-mini mb-4">
         <?php include('../inc/nav-bars.php'); ?>
 
     </div>
     <!-- ==================End of hero div================== -->
 
     <!-- ==================End of hero div================== -->
-    <div class="row mt-4 mx-1" style="border: 2px solid red;">
+    <div class="row mt-4 mx-1" >
         <!-- Left side columns -->
         <div class="col-lg-5 mb-4">
             <div class="row">
@@ -104,23 +105,31 @@ $news_row = mysqli_fetch_assoc($single_news_run);
     <!-- ==================End of hero div================== -->
 
     <!-- ====================Sponsors======================== -->
-    <div class="row mt-4 mx-1" style="border: 2px solid red;">
+    <div class="row mt-4 mx-1" >
         <div class="card-title text-center">
-            <h4><b>Our Sponsors</b></h4>
+            <h4><b>Sponsors</b></h4>
         </div>
         <div class="d-flex justify-content-center bg-white m-2 mb-4">
 
-            <!-- <marquee class="marquee"> -->
-            <?php
-            $query_sponsors = "SELECT logo FROM sponsors";
-            $query_sponsors_run = mysqli_query($conn, $query_sponsors);
-
-            while ($sponsor = mysqli_fetch_assoc($query_sponsors_run)) { ?>
-                <a href="#" class="mx-4">
-                    <img style="height: 100px; width: 100px; border-radius: 10%;" src="../assets/img/sponsors/<?= $sponsor['logo']; ?>" alt="">
-                </a>
-            <?php } ?>
-            <!-- </marquee> -->
+            <div class="slide-container swiper bg-transparent" >
+            <div class="slide-content bg-transparent" style="padding-right: 50px; background-color: green">
+                <div class="swiper-wrapper mx-4 bg-transparent" style="border: 2px solid deepskyblue">
+                <?php 
+                $query_sponsors = "SELECT * FROM sponsors";
+                    $query_sponsors_run = mysqli_query($conn, $query_sponsors);
+                while ($sponsor = mysqli_fetch_assoc($query_sponsors_run)) { ?>
+                    <div class="card swiper-slide bg-transparent">
+                        <div class="col">
+                            <div class="card-body my-auto pt-4 bg-transparent">
+                            <center><img class="rounded-circle" width="100" height="100" src="../assets/img/sponsors/<?= $sponsor['logo']; ?>" alt=""></center>
+                                <p class="fs-6 text-center"><?=$sponsor['sponsor'];?> <br> <span class="fs-4"> <?= $sponsor['team'];?> FC </span></p>
+                            </div>
+                    </div>
+                    </div>
+                <?php } ?>
+                </div>
+            </div>
+            </div>
 
         </div>
     </div>

@@ -1,35 +1,57 @@
 <?php
-session_start();
-include('config.php');
+    session_start();
+    include('config.php');
 
-// Get teams
-$query_clubs = "SELECT `name` FROM clubs";
-$query_club1_run = mysqli_query($conn, $query_clubs);
-$query_club2_run = mysqli_query($conn, $query_clubs);
+    // Get teams
+    $query_clubs = "SELECT `name` FROM clubs";
+    $query_club1_run = mysqli_query($conn, $query_clubs);
+    $query_club2_run = mysqli_query($conn, $query_clubs);
 
-// Get fixtures
-$fixtures = "SELECT * FROM fixtures";
-$fix_run = mysqli_query($conn, $fixtures);
+    // Get fixtures
+    $fixtures = "SELECT * FROM fixtures";
+    $fix_run = mysqli_query($conn, $fixtures);
 
-if (isset($_POST['submit'])) {
-    $team1 = $_POST['team1'];
-    $team2 = $_POST['team2'];
-    $date = $_POST['date'];
-    $time = $_POST['time'];
+    if (isset($_POST['submit'])) {
+        $team1 = $_POST['team1'];
+        $team2 = $_POST['team2'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $matchday = $_POST['matchday'];
+        $pitch = $_POST['pitch'];
 
-    // echo $team1, $team2, $date, $time;
+        // echo $team1, $team2, $date, $time;
 
-    $addFixture = "INSERT INTO fixtures(team1, team2, date, time)
-        VALUES('$team1', '$team2', '$date', '$time' )";
+        $addFixture = "INSERT INTO fixtures(team1, team2, date, time, week, pitch)
+            VALUES('$team1', '$team2', '$date', '$time', '$matchday', '$pitch')";
 
-    $query_run = mysqli_query($conn, $addFixture);
-    if ($query_run) {
-        $_SESSION['status'] = "Fixture added successfully";
-        header('location:add-fixture.php');
-    } else {
-        $_SESSION['status'] = "Error while adding the fixture";
+        $query_run = mysqli_query($conn, $addFixture);
+        if ($query_run) {
+            $_SESSION['status'] = "Fixture added successfully";
+            header('location:add-fixture.php');
+        } else {
+            $_SESSION['status'] = "Error while adding the fixture";
+        }
     }
-}
+
+    if (isset($_GET['delete_id'])) {
+
+        $fixtureToDeleteId = $_GET['delete_id'];
+        if(!empty($fixtureToDeleteId)){
+            echo "<script>alert('Are you sure? You want to delete this fixture');</script>";
+
+            $delete = "DELETE FROM fixtures WHERE id= $fixtureToDeleteId ";
+            if(mysqli_query($conn, $delete)){
+                $_SESSION['status'] = "Fixture deleted successfully";
+                echo "<script>window.location.href = 'add-fixture.phpp'</script>";
+            }else{
+                $_SESSION['status'] = "Error while deleting the fixture";
+                echo "<script>window.location.href = 'add-fixture.phpp'</script>";
+            }
+        }else{
+            $_SESSION['status'] = "No fixture was selected";
+            echo "<script>window.location.href = 'add-fixture.phpp'</script>";
+        }
+    }
 
 ?>
 
@@ -41,19 +63,18 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Fixture</title>
 
-    <!-- Favicons -->
+  
     <link href="../assets/logos/favicon.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> -->
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
@@ -61,11 +82,9 @@ if (isset($_POST['submit'])) {
     <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
-    <link href="../assets/css/style.css" rel="stylesheet">
 
-    <!-- Custom css -->
-    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/custom.css"> -->
 
 
 </head>
@@ -129,6 +148,28 @@ if (isset($_POST['submit'])) {
                                         </div>
 
                                         <div class="col-12">
+                                            <label class="form-label">Matchday</label>
+                                            <select class="form-select" name="matchday" aria-label="Default select example">
+                                                    <option selected>---</option>
+                                                    <option value="Matchday 1">Matchday 1</option>
+                                                    <option value="Matchday 2">Matchday 2</option>
+                                                    <option value="Matchday 3">Matchday 3</option>
+                                                    <option value="Matchday 4">Matchday 4</option>
+                                                    <option value="Matchday 5">Matchday 5</option>
+                                                    <option value="Matchday 6">Matchday 6</option>   
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label class="form-label">Pitch</label>
+                                            <select class="form-select" name="pitch" aria-label="Default select example">
+                                                    <option selected>---</option>
+                                                    <option value="Pitch 1">Pitch 1</option>
+                                                    <option value="Pitch 2">Pitch 2</option>   
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12">
                                             <button class="btn btn-success w-100" name="submit" type="submit">ADD</button>
                                         </div>
 
@@ -150,6 +191,8 @@ if (isset($_POST['submit'])) {
                                             <th>Team 2</th>
                                             <th>Date</th>
                                             <th>Time</th>
+                                            <th>Matchday</th>
+                                            <th>Pitch</th>
                                             <th>Actions</th>
                                         </thead>
                                         <tbody>
@@ -158,7 +201,9 @@ if (isset($_POST['submit'])) {
                                                     <td><?= $fix['team1']; ?></td>
                                                     <td><?= $fix['team2']; ?></td>
                                                     <td><?= $fix['date']; ?></td>
-                                                    <td><?= $fix['time']; ?></td>
+                                                    <td><?= date('h:i a', strtotime($fix['time'])); ?></td>
+                                                    <td><?= $fix['week']; ?></td>
+                                                    <td><?= $fix['pitch']; ?></td>
                                                     <td>
                                                         <a class="btn btn-sm btn-primary" href="action.php?update_id=<?= $fix['id']; ?>">Update</a>
                                                         <a class="btn btn-sm btn-danger" href="action.php?delete_id=<?= $fix['id']; ?>">Delete</a>

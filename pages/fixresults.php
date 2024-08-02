@@ -37,31 +37,31 @@
   // ``````````````````` fetch fixtures ``````````````````````````
 
     // ~~~~~~~> Week 1
-  $fixturesWeekOne = "SELECT * FROM fixtures WHERE week = 'week1' ";
+  $fixturesWeekOne = "SELECT * FROM fixtures WHERE week = 'Matchday 1' ";
   $fixturesWeekOne_run = mysqli_query($conn, $fixturesWeekOne);
 
       // ~~~~~~~> Week 2
-  $fixturesWeekTwo = "SELECT * FROM fixtures WHERE week = 'week2' ";
+  $fixturesWeekTwo = "SELECT * FROM fixtures WHERE week = 'Matchday 2' ";
   $fixturesWeekTwo_run = mysqli_query($conn, $fixturesWeekTwo);
 
       // ~~~~~~~> Week 3
-  $fixturesWeekThree = "SELECT * FROM fixtures WHERE week = 'week3' ";
+  $fixturesWeekThree = "SELECT * FROM fixtures WHERE week = 'Matchday 3' ";
   $fixturesWeekThree_run = mysqli_query($conn, $fixturesWeekThree);
 
       // ~~~~~~~> Week 4
-  $fixturesWeekFour = "SELECT * FROM fixtures WHERE week = 'week4' ";
+  $fixturesWeekFour = "SELECT * FROM fixtures WHERE week = 'Matchday 4' ";
   $fixturesWeekFour_run = mysqli_query($conn, $fixturesWeekFour);
 
       // ~~~~~~~> Week 5
-  $fixturesWeekFive = "SELECT * FROM fixtures WHERE week = 'week5' ";
+  $fixturesWeekFive = "SELECT * FROM fixtures WHERE week = 'Matchday 5' ";
   $fixturesWeekFive_run = mysqli_query($conn, $fixturesWeekFive);
 
       // ~~~~~~~> Week 6
-  $fixturesWeekSix = "SELECT * FROM fixtures WHERE week = 'week6' ";
+  $fixturesWeekSix = "SELECT * FROM fixtures WHERE week = 'Matchday 6' ";
   $fixturesWeekSix_run = mysqli_query($conn, $fixturesWeekSix);
 
       // ~~~~~~~> Week 7
-  $fixturesWeekSeven = "SELECT * FROM fixtures WHERE week = 'week7' ";
+  $fixturesWeekSeven = "SELECT * FROM fixtures WHERE week = 'Matchday 7' ";
   $fixturesWeekSeven_run = mysqli_query($conn, $fixturesWeekSeven);
 
 
@@ -105,7 +105,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-one">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wk-One" aria-expanded="true" aria-controls="collapseOne">
-                                <h4 class="fs-5 fw-bolder active-wk"><i >Week 1</i></h4>
+                                <h4 class="fs-5 fw-bolder active-wk">Matchday 1 <span class="text-dark"><i class="ms-4 bi bi-calendar-fill" ></i> 4<sup>th</sup> Aug, 2024</span></h4>
                                 </button>
                             </h2>
                             <div id="collapse-wk-One" class="accordion-collapse collapse show" aria-labelledby="week-one" data-bs-parent="#accordionFixtures">
@@ -120,7 +120,7 @@
                                                     <h4 class="fw-bolder active-wk my-auto me-2 team-text"><i ><?=$wkOne_fix['team1'];?> FC</i></h4>
 
 
-                                                    <button type="button" class="btn btn-secondary my-auto mx-2 fixt-btn"><?=$wkOne_fix['time'];?></button>
+                                                    <button type="button" class="btn btn-secondary my-auto mx-2 fixt-btn"><?= date('h:i a', strtotime($wkOne_fix['time']));?></button>
 
                                                     <img class="fix-team-img my-auto mx-2" src="../assets/img/teams/<?=$wkOne_fix['team2'];?>.png" alt="">
 
@@ -141,7 +141,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-two">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wk-two" aria-expanded="false" aria-controls="collapseTwo">
-                                <h4 class="fs-5 fw-bolder"><i >Week 2</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 2</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-wk-two" class="accordion-collapse collapse" aria-labelledby="week-two" data-bs-parent="#accordionFixtures">
@@ -174,7 +174,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-three">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wk-three" aria-expanded="false" aria-controls="collapseThree">
-                                <h4 class="fs-5 fw-bolder"><i >Week 3</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 3</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-wk-three" class="accordion-collapse collapse" aria-labelledby="week-three" data-bs-parent="#accordionFixtures">
@@ -207,7 +207,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-four">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wk-four" aria-expanded="false" aria-controls="collapseThree">
-                                <h4 class="fs-5 fw-bolder"><i >Week 4</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 4</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-wk-four" class="accordion-collapse collapse" aria-labelledby="week-four" data-bs-parent="#accordionFixtures">
@@ -240,7 +240,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-five">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wk-five" aria-expanded="false" aria-controls="collapseThree">
-                                <h4 class="fs-5 fw-bolder"><i >Week 5</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 5</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-wk-five" class="accordion-collapse collapse" aria-labelledby="week-five" data-bs-parent="#accordionFixtures">
@@ -273,7 +273,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-six">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wk-six" aria-expanded="false" aria-controls="collapseThree">
-                                <h4 class="fs-5 fw-bolder"><i >Week 6</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 6</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-wk-six" class="accordion-collapse collapse" aria-labelledby="week-six" data-bs-parent="#accordionFixtures">
@@ -317,7 +317,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="results-week-one">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-results-wk-One" aria-expanded="true" aria-controls="collapse-results-one">
-                                <h4 class="fs-5 fw-bolder active-wk"><i >Week 1</i></h4>
+                                <h4 class="fs-5 fw-bolder active-wk"><i >Matchday 1</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-results-wk-One" class="accordion-collapse collapse show" aria-labelledby="results-week-one" data-bs-parent="#accordionResults">
@@ -355,7 +355,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-two-results">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-results-wk-two" aria-expanded="false" aria-controls="collapse-results-two">
-                                <h4 class="fs-5 fw-bolder"><i >Week 2</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 2</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-results-wk-two" class="accordion-collapse collapse" aria-labelledby="week-two-results" data-bs-parent="#accordionResults">
@@ -388,7 +388,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-three-results">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-results-wk-three" aria-expanded="false" aria-controls="collapse-results-three">
-                                <h4 class="fs-5 fw-bolder"><i >Week 3</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 3</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-results-wk-three" class="accordion-collapse collapse" aria-labelledby="week-three-results" data-bs-parent="#accordionResults">
@@ -421,7 +421,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-four-results">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-results-wk-four" aria-expanded="false" aria-controls="collapse-results-four">
-                                <h4 class="fs-5 fw-bolder"><i >Week 4</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 4</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-results-wk-four" class="accordion-collapse collapse" aria-labelledby="week-four-results" data-bs-parent="#accordionResults">
@@ -454,7 +454,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-five-results">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-results-wk-five" aria-expanded="false" aria-controls="collapse-results-five">
-                                <h4 class="fs-5 fw-bolder"><i >Week 5</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 5</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-results-wk-five" class="accordion-collapse collapse" aria-labelledby="week-five-results" data-bs-parent="#accordionResults">
@@ -487,7 +487,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="week-six-results">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-results-wk-six" aria-expanded="false" aria-controls="collapse-results-six">
-                                <h4 class="fs-5 fw-bolder"><i >Week 6</i></h4>
+                                <h4 class="fs-5 fw-bolder"><i >Matchday 6</i></h4>
                                 </button>
                             </h2>
                             <div id="collapse-results-wk-six" class="accordion-collapse collapse" aria-labelledby="week-six-results" data-bs-parent="#accordionResults">

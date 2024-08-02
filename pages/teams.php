@@ -25,7 +25,7 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
 
     <div class="la-container-team d-block m-auto justify-content-center mb-4">
         <div class="d-flex justify-content-center">
-            <h1 class="text-white heading-text-about"> Clubs</h1>
+            <h4 class="text-white heading-text-teams"> Clubs</h4>
         </div>
         <!-- <h4 class="d-flex justify-content-center text-white"> Check on the KHOSA League teams</h4> -->
     </div>
@@ -36,16 +36,16 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
                 <div class="col-lg-3">
 
                     <div class="card teamcard">
-                        <div class="cardheader">
+                        <div class="cardheader mb-4">
                             <img class="team-wallpaper" src="../assets/img/wallpaper<?= $team['name'];?>.png" alt="<?=$team['name'];?> FC">
-                            <p><?php echo $team['name'] ?></p>
+                            
                         </div>
                         <div class="avatar">
                             <img alt="" src="../assets/img/teams/<?= $team['logo']; ?>">
                         </div>
                         <div class="info">
-                            <h2><?= $team['name']; ?></h2>
-                            <h3>EST: <span>2012</span></h3>
+                            <h3 class="fw-bolder"><?= $team['name']; ?> FC</h3>
+                            <h3 class="text-secondary fs-5">EST: <span><?= $team['est']; ?></h3></span></h3>
                         </div>
 
                         <div style="margin-bottom: 10px;">

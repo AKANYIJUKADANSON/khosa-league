@@ -46,20 +46,20 @@
   </div>
 
 
-  <div class="row mt-4 mx-1 players">
+  <div class="row mt-4 px-1 players">
         <section class="section">
           <div class="row">
             <div class="col-lg-12">
 
               <div class="card">
-                <div class="card-body">
+                <!-- <div class="card-body"> -->
                   <!-- ~~~~~~~~~~~~~Table~~~~~~~~~~~~~~~~~~~~~~~ -->
-                  <table class="table datatable bordered table-players">
+                  <table class="table datatable table-border table-players">
                     <thead>
-                      <tr>
-                        <th scope="col"><b class="fw-bold text-primary tb-head">Player</b></th>
-                        <th scope="col"><b class="fw-bold text-primary tb-head">Position</b></th>
-                        <th scope="col"><b class="fw-bold text-primary tb-head">Club</b></th>
+                      <tr class="text-start">
+                        <th scope="col"><b class="fw-bold text-primary">Player</b></th>
+                        <th scope="col"><b class="fw-bold text-primary">Position</b></th>
+                        <th scope="col"><b class="fw-bold text-primary">Club</b></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -67,11 +67,11 @@
                         while ($player = mysqli_fetch_assoc($query_players_run)) { ?>
 
                         
-                          <tr>
+                          <tr data-bs-toggle="modal" data-bs-target="#modalDialogScrollable<?php echo $player['id'] ?>">
                             <td class="">
                               <div class="d-flex">
                                 <img style="" class="rounded player-img" src="../assets/img/players/<?= $player['image'];?>" alt="">
-                                <h4 class="fw-bolder my-auto player-name"><?= $player['name'];?></h4>
+                                <h4 class="fw-bolder my-auto player-name"><span class="text-capitalize"><?= $player['name'];?></span></h4>
                               </div>
                             </td>
 
@@ -83,12 +83,12 @@
                               <div class="d-flex">
                                 <img class="rounded-circle player-img" src="../assets/img/teams/<?= $player['team'];?>.png" alt="">
 
-                                <h5 class="fw-bolder my-auto ms-4 player-name" ><?= $player['team'];?></h5>
+                                <h5 class="fw-bolder my-auto ms-2 player-name" ><?= $player['team'];?></h5>
                               </div>
                             </td>
 
                             <td>
-                              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable<?php echo $player['id'] ?>">View<i  class="bi bi-arrow-righ"></i>
+                              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable<?php echo $player['id'] ?>"><i  class="bi bi-eye"></i>
                               </button>
                             </td>
                               
@@ -123,9 +123,9 @@
                                             <span class="card-title text-secondary mx-2"><b class="fs-4 text-primary"><?= $player['role']; ?></b></span>
                                             </label><br>
 
-                                            <label class="card-title fs-3">Age:
-                                            <span class="card-title text-secondary mx-2"><b class="fs-4 text-primary"><?= $player['age']; ?></b></span>
-                                            </label>
+                                            <!-- <label class="card-title fs-3">Age:
+                                            <span class="card-title text-secondary mx-2"><b class="fs-4 text-primary"><?php //$player['age']; ?></b></span>
+                                            </label> -->
                                           </div>
 
                                           <div class="">
@@ -177,7 +177,7 @@
                   </table>
 
 
-                </div>
+                <!-- </div> -->
               </div>
 
             </div>

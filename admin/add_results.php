@@ -38,7 +38,7 @@ if (isset($_POST['add_result'])) {
     $query_run = mysqli_query($conn, $add_result);
     if ($query_run) {
         $_SESSION['status'] = "202: Success";
-        header('location:add_results.php');
+        echo "<script>window.location.href = 'add_results.php'</script>";
     } else {
         $_SESSION['status'] = "505: Server error: " . mysqli_erro();
     }
@@ -88,18 +88,32 @@ if (isset($_POST['add_result'])) {
         if ($query_run) {
             // $_SESSION['status'] = "202: Success";
             echo "<script>alert('202: Success')</script>";
-            header('location:add_results.php');
+            echo "<script>window.location.href = 'add_results.php'</script>";
         } else {
             // $_SESSION['status'] = "505: Server error: " . mysqli_error();
             echo "<script>alert('505: Error')</script>";
-            header('location:add_results.php');
+            echo "<script>window.location.href = 'add_results.php'</script>";
             
         }
     }
 
+
     //~~~~~~~~~~~~~~~~~~ DELETING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (isset($_GET['del_id'])) {
-        
+        // Get delete id for the corresponding record
+
+        $delete_id = $_GET['del_id'];
+
+        $stmt = "DELETE FROM results WHERE id = '$delete_id' ";
+        $stmt_run = mysqli_query($conn, $stmt);
+
+        if($stmt_run){
+            echo "<script>alert('Result deleted successfully');</script>";
+           echo "<script>window.location.href = 'add_results.php'</script>";
+        }else{
+             echo "<script>alert('Error while deleting record');</script>";
+             echo "<script>window.location.href = 'add_results.php'</script>";
+        }
     }
 
 
@@ -268,7 +282,7 @@ if (isset($_POST['add_result'])) {
                                                     <td>
                                                         <a class="btn btn-sm btn-primary" href="add_results.php?update_id=<?= $result['id']; ?>">Update</a>
 
-                                                        <a class="btn btn-sm btn-danger" href="add_results.php?del_id=<?= $result['id']; ?>">Delete</a>
+                                                        <a onclick="return confirm('Are you sure, you want to delete the rcord?')" class="btn btn-sm btn-danger" href="add_results.php?del_id=<?= $result['id']; ?>">Delete</a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>

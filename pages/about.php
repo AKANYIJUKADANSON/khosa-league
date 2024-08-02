@@ -35,7 +35,7 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
     </div>
 
     <!-- ==================End of hero div================== -->
-    <div class="row mt-4 mx-1" style="border: 2px solid red;">
+    <div class="row mt-4 mx-1" >
         <!-- Left side columns -->
         <div class="col-lg-6 mb-4">
             <div class="row">
@@ -49,7 +49,7 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
             <!-- Results Card -->
             <div class="results">
                 <!-- <div class="bg-success"> -->
-                <h1 class="about-right-heading my-4 ps-4">KHOSA LEAGUE</h1>
+                <h1 class="about-right-heading my-4 ps-4 text-center">KHOSA LEAGUE</h1>
 
                 <div class="mx-4 about-details">
                     <p>
@@ -67,7 +67,7 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
     <!-- ==================End of hero div================== -->
 
     <!-- ==================End of hero div================== -->
-    <div class="row mt-4 mx-1" style="border: 2px solid red;">
+    <div class="row mt-4 mx-1">
 
 
 
@@ -109,6 +109,73 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
 
     </div>
     <!-- ==================End of hero div================== -->
+
+
+    <!-- ====================Sponsors======================== -->
+         
+    <div class="row mt-4 mx-1 " >
+        <div class="card-title text-center">
+            <h4><b>Sponsors</b></h4>
+            <hr>
+        </div>
+        <div class="d-flex justify-content-center bg-white m-2 mb-4">
+
+            <div class="slide-container swiper bg-transparent" >
+            <div class="slide-content bg-transparent" style="padding-right: 50px; background-color: green">
+                <div class="swiper-wrapper mx-4 bg-transparent" style="border: 2px solid deepskyblue">
+                <?php 
+                $query_sponsors = "SELECT * FROM sponsors WHERE status = 'Active' ";
+                    $query_sponsors_run = mysqli_query($conn, $query_sponsors);
+                while ($sponsor = mysqli_fetch_assoc($query_sponsors_run)) { ?>
+                    <div class="card swiper-slide bg-transparent">
+                        <div class="col">
+                            <div class="card-body my-auto pt-4 bg-transparent">
+                            <center><img class="rounded-circle" width="100" height="100" src="../assets/img/sponsors/<?= $sponsor['logo']; ?>" alt=""></center>
+                                <p class="fs-6 text-center"><?=$sponsor['sponsor'];?> <br> <span class="fs-4"> <?= $sponsor['team'];?> FC </span></p>
+                            </div>
+                    </div>
+                    </div>
+                <?php } ?>
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~TEAM~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <!-- <div class="row mt-4 mx-1 bg-success" >
+        <div class="card-title text-center">
+            <h4><b>Sponsors</b></h4>
+            <hr>
+        </div>
+        <div class="d-flex justify-content-center bg-white m-2 mb-4">
+
+            <div class="slide-container swiper bg-transparent" >
+                <div class="slide-content bg-transparent" style="padding-right: 50px; background-color: green">
+                    <div class="swiper-wrapper mx-4 bg-transparent" style="border: 2px solid deepskyblue">
+                    <?php 
+                    // $query_mgt = "SELECT * FROM management";
+                    //     $query_mgt_run = mysqli_query($conn, $query_mgt);
+                    // while ($member = mysqli_fetch_assoc($query_mgt_run)) { ?>
+                        <div class="card swiper-slide bg-transparent">
+                            <div class="col">
+                                <div class="card-body my-auto pt-4 bg-transparent">
+                                <center><img class="rounded-circle" width="100" height="100" src="../assets/img/sponsors/<?php // $member['image']; ?>" alt=""></center>
+                                    <p class="fs-6 text-center"><?php //$member['name'];?></p>
+                                </div>
+                        </div>
+                        </div>
+                    <?php //} ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+
 
     <!-- ==================Start of foorter div================== -->
     <?php include('../inc/footer.php'); ?>

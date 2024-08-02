@@ -12,3 +12,9 @@ This web app is to provide information about the KHOSA LEAGUE matches and other 
 3. Page for teams and single team
 4. Latest updates/Posts
 5. About the league
+
+## Installation
+    Install XAMMP
+    Copy the project folder in the htdocx folder
+    Run the xammp terminal and start mysql and apache
+    in your browser, type the "localhost:8080/[name_of_project_folder]"

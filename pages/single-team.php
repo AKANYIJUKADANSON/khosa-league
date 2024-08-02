@@ -33,16 +33,14 @@ $query_players_run = mysqli_query($conn, $query_players);
 </head>
 
 <body>
-    <div class="hero-mini mb-4" style="border: 2px solid green;">
+    <div class="hero-mini mb-4">
         <?php include('../inc/nav-bars.php'); ?>
 
     </div>
     <!-- ==================End of hero div================== -->
 
     <div class="la-container-single-team d-block m-auto justify-content-center" 
-        style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/img/wallpaper<?=$selectedClubData['name'];?>.png); ">
-
-        <!-- <div class="la-container-single-team d-block m-auto justify-content-center"> -->
+        style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/img/wallpaper<?=$selectedClubData['name'];?>.png); background-size: cover; background-repeat: no-repeat;">
         
         <div class="d-flex justify-content-center">
             <h1 class="text-center text-white heading-text-about"> <?php echo $selectedTeam." FC" ?></h1>
@@ -50,7 +48,7 @@ $query_players_run = mysqli_query($conn, $query_players);
     </div>
 
     <!-- ==================End of hero div================== -->
-    <div class="row mt-4 mx-1" style="border: 2px solid red;">
+    <div class="row mt-4 mx-1">
         <!-- Left side columns -->
         <div class="col-lg-6 mb-4">
             <div class="row d-fles justify-content-center">
@@ -66,7 +64,7 @@ $query_players_run = mysqli_query($conn, $query_players);
 
                 <div class="mx-4 about-details">
                     <p>
-                        <b><span style="color: #012970; font-size: 25px;"><?=$selectedClubData['name'];?> Football Club</span></b>
+                        <b><span style="color: #012970; font-size: 25px;"><?=$selectedClubData['name'];?> Football Club</span></b><br>
                         <?=$selectedClubData['about'];?>
 
                     </p>
@@ -80,35 +78,35 @@ $query_players_run = mysqli_query($conn, $query_players);
 
 
     <!-- ======================Start of Players section============== -->
-    <div class="row mt-4 mx-1">
+    <div class="row mt-4 mx-1" style="background-color: rg(243, 241, 241);">
         <div class="card-title text-center"><h1><b>Players</b></h1></div>
         <hr>
     <?php
     if (mysqli_num_rows($query_players_run) > 0) {
       while ($player = mysqli_fetch_assoc($query_players_run)) { ?>
-        <div class="col-lg-3 players">
-          <div class="card card-player">
-            <img height="350" class="rounded" src="../assets/img/players/<?= $player['image']; ?>"  alt="...">
+        <div class="col-lg-3 players single-team-page">
+          <div class="card card-player shadow-lg">
+            <img height="450" class="rounded" src="../assets/img/players/<?= $player['image']; ?>"  alt="...">
             <div class="card-body">
               <div class="details">
-                <div class="meta-data">
-                  <h2 class="card-title">Name:</h2>
-                  <h5 class="card-title text-secondary mx-2"><?= $player['name']; ?></h5>
-                </div>
+                <p>
+                  <span class="card-title fs-4">Name:</span>
+                  <span class="card-title text-secondary mx-2 fs-5"><?= $player['name']; ?></span>
+                </p>
 
-                <div class="meta-data">
-                  <h2 class="card-title">Team:</h2>
-                  <h5 class="card-title text-secondary mx-2"><?= $player['team']; ?></h5>
-                </div>
+                <p>
+                  <span class="card-title fs-4">Team:</span>
+                  <span class="card-title text-secondary mx-2 fs-5"><?= $player['team']; ?></span>
+                </p>
 
-                <div class="meta-data">
-                  <h2 class="card-title">Role:</h2>
-                  <h5 class="card-title text-secondary mx-2"><?= $player['role']; ?></h5>
-                </div>
+                <p>
+                  <span class="card-title fs-4">Role:</span>
+                  <span class="card-title text-secondary mx-2 fs-5"><?= $player['role']; ?></span>
+                </p>
 
               </div>
             </div>
-            <button type="button" class="btn m-4" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable<?php echo $player['id'] ?>">
+            <button type="button" class="btn mx-4 mb-4" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable<?php echo $player['id'] ?>">
               View Profile <i  class="bi bi-arrow-right"></i>
             </button>
           </div>
@@ -197,44 +195,8 @@ $query_players_run = mysqli_query($conn, $query_players);
   <!-- ==============================End of players Section=============== -->
 
     <!-- ==================End of hero div================== -->
-    <div class="row mt-4 mx-1" style="border: 2px solid red;">
+    <div class="row mt-4 mx-1" style="border: 2px solid re;">
 
-
-
-        <section id="portfolio" class="portfolio">
-
-            <div class="section-title text-center">
-                <h2 class="w-500 my-4">Gallery</h2>
-                <hr class="w-500 mb-4">
-            </div>
-
-            <div class="container" data-aos="fade-up">
-
-                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-                    <?php 
-                        if (mysqli_num_rows($query_gallery_run) > 0) {
-                            while ($gallery = mysqli_fetch_assoc($query_gallery_run)) { ?>
-                                <div class="col-lg-4">
-
-                                    <div class="card teamcard">
-                                        <img src="../assets/img/gallery/<?=$gallery['image'];?> " alt="">
-                                        <p class="mt-2"><em><?=$gallery['caption'];?></em></p>
-                                    </div>
-
-                                </div>
-                                <?php
-      }
-    } else {
-      echo "Gallery database is empty";
-    }
-    ?>
-                    
-
-                </div>
-
-            </div>
-        </section>
 
     </div>
     <!-- ==================End of hero div================== -->

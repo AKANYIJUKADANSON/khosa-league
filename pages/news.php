@@ -49,7 +49,7 @@
         <div class="d-flex justify-content-center">
         <h2 class="text-center text-white heading-text-about mb-4">Blog</h2>
         </div>
-        <h4 class="d-flex justify-content-center text-white">Check on the latest news about the KHOSA League</h4>
+        <h4 class="d-flex justify-content-center text-white text-center">Check on the latest news about the KHOSA League</h4>
     </div>
 
 
@@ -98,18 +98,17 @@
                 </div>
 
                 <!-- ~~~~~~~~~~~~Right side Social Media News ~~~~~~~~~~~~~~~~~~ -->
-                <div class="col-lg-4 home-news">
+                <div class="col-lg-4 home-news" style="border: 2px solid re; margin-bottom: 30px">
                     <h3 class="card-title fs-4 text-decoration-none ms-4 text-primary"><b><i class="bi bi-twitter me-2"></i>Tweets</b></h3>
 
-                        <div class="card-body overflow-auto shadow-lg pt-2" style="height: 160vh">
+                    <div class="card-body overflow-auto shadow-lg pt-2" style="height: 160vh; ">
 
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <a type="button" class="twitter-timeline" data-dnt="true" href="https://twitter.com/khosaleague?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                </div>
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <a type="button" class="twitter-timeline" data-dnt="true" href="https://twitter.com/khosaleague?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
-
                         </div>
+                    </div>
                 </div>
 
             </div>
