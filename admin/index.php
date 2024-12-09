@@ -1,46 +1,117 @@
-<?php include('../admin/config.php');?>
+<?php
+    session_start();
+    include('config.php');
+    error_reporting(0);
+
+    if (isset($_POST['login'])) {
+        $user_email = $_POST['user_email'];
+        $password = $_POST['password'];
+
+        // echo $user_email, $password;
+
+        // Get db user data
+        $query = "SELECT * FROM `admin` WHERE `email` = '$user_email'";
+        $query_run = mysqli_query($conn, $query);
+        $data = mysqli_fetch_assoc($query_run);
+
+        if ($data['email'] == $user_email && $data['password'] == $password) {
+            $_SESSION['status'] = "Login successfully";
+            echo "<script>window.location.href = 'landing_page.php'</script>";
+
+            // echo "User email: ". $user_email . " user paswd: ". $password;
+            // echo "db email: ". $data['email'] . " db paswd: ". $data['password'];
+        } else {
+            $_SESSION['status'] = "Wrong email or password, please try again !";
+            // echo "Error logging in";
+            echo "<script>window.location.href = 'index.php'</script>";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  <title>Admin | KHOSA LEAGUE</title>
-  <?php include('../inc/header-links.php'); ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Login</title>
+
+  
+    <link href="../assets/logos/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
 
 </head>
 
 <body>
 
-  <div class="bg-success mb-4" style="height: 70vh">
+    <main>
+        <div class="container">
 
-    <!-- ==================Start of Navigation div================== -->
-    <?php include('../inc/nav-bars.php'); ?>
-    <!-- ==================End of Navigation div================== -->
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-    <div class="card bg-transparent">
-        <div class="card-body">
-            <h5 class="card-title">ADMIN DASHBOARD</h5>
+                            <?php include('notif.php'); ?>
+                            <div class="d-flex justify-contents-center">
+                                <div class="d-block" style="border: 2px solid re">
+                                    <img class="rounded-circle mx-2" src="../assets/img/favicon.png" style="height: 80px; width:80px;">
+                                </div>
+                                <div class="d-block mt-0" style="border: 2px solid gree">
+                                    <h4 href="#" class="logo d-flex justify-content-center w-auto">
+                                        <span class="d-none d-lg-block text-danger"><em><b>ADMIN</b></em></span>
+                                    </h4>
 
-            <a href="add_results.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-alarm me-1 fs-3"></i> <span class="fs-2">Add Results</span></a>
+                                    <h4 class="logo d-flex align-items-center w-auto">
+                                        <span class="d-none d-lg-block">LOGIN</span>
+                                    </h4>
+                                </div>
+                            </div>
 
-            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-book-half me-1 fs-3"></i> <span class="fs-2" >Add Post</span></a>
+                            <div class="card mb-3">
+                                <div class="card-body">
 
-            <a href="add-fixture.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-plus-square me-1 fs-3"></i> <span class="fs-2" >Add Fixture</span></a>
+                                    <form action="index.php" method="post" class="row g-3 pt-4 pb-2" enctype="multipart/form-data">
+                                        
+                                        <div class="col-12">
+                                            <label class="form-label"><i class="bi bi-envelope">Email</i></label>
+                                            <input type="email" name="user_email" class="form-control" required>
+                                        </div>
 
-            <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-people-fill me-1 fs-3"></i> <span class="fs-2" >Add Club</span></a>
+                                        <div class="col-12">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" name="password" class="form-control" required>
+                                        </div>
 
-            <!-- <a href="posts.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-images me-1 fs-3"></i> <span class="fs-2" >Add To Gallery</span></a> -->
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100" name="login" type="submit">LOGIN</button>
+                                        </div>
 
-            <a href="update-fixture.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-plus-square me-1 fs-3"></i> <span class="fs-2" >Fixtures</span></a>
+                                        <div class="col-12">
+                                            Have No Account? <a class="text-decoration-none color-primary" href="create-account.php">Create Account</a>
+                                        </div>
+                                    </form>
 
-            <a href="add_player.php" type="button" class="btn btn-primary btn-lg mx-2 my-4"><i class="bi bi-people me-1 fs-3"></i> <span class="fs-2" >Add Players</span></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
 
         </div>
-    </div>
-  </div>
+    </main>
 
-  <!-- ============== Footer -->
-  <?php include('../inc/footer.php'); ?>
+    <!-- including the JS from bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

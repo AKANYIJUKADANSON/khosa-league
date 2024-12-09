@@ -3,14 +3,14 @@
 include('../admin/config.php');
 $selectedTeam = $_GET['team'];
 
-$query_clubs = "SELECT * FROM clubs";
+$query_clubs = "SELECT * FROM teams";
 $query_clubs_run = mysqli_query($conn, $query_clubs);
 
-$query_gallery = "SELECT * FROM gallery WHERE team LIKE '%$selectedTeam%' LIMIT 8 ";
-$query_gallery_run = mysqli_query($conn, $query_gallery);
+// $query_gallery = "SELECT * FROM gallery WHERE team LIKE '%$selectedTeam%' LIMIT 8 ";
+// $query_gallery_run = mysqli_query($conn, $query_gallery);
 
 // get data for the selected team
-$selectedClub = "SELECT * FROM clubs WHERE name = '$selectedTeam' ";
+$selectedClub = "SELECT * FROM teams WHERE name = '$selectedTeam' ";
 $query_selectedClub_run = mysqli_query($conn, $selectedClub);
 $selectedClubData = mysqli_fetch_assoc($query_selectedClub_run);
 
@@ -26,7 +26,7 @@ $query_players_run = mysqli_query($conn, $query_players);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHOSA - sTeam</title>
+    <title>Club</title>
 
     <?php include('../inc/header-links.php'); ?>
 
@@ -42,8 +42,8 @@ $query_players_run = mysqli_query($conn, $query_players);
     <div class="la-container-single-team d-block m-auto justify-content-center" 
         style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/img/wallpaper<?=$selectedClubData['name'];?>.png); background-size: cover; background-repeat: no-repeat;">
         
-        <div class="d-flex justify-content-center">
-            <h1 class="text-center text-white heading-text-about"> <?php echo $selectedTeam." FC" ?></h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <h1 class="text-center text-white heading-text-labout"> <?php echo $selectedTeam." FC" ?></h1>
         </div>
     </div>
 
@@ -129,39 +129,27 @@ $query_players_run = mysqli_query($conn, $query_players);
                     <div class="card-body">
                       <div class="modal-details">
                         <div class="meta-data">
-                          <h2 class="card-title">Name:</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['name']; ?></h5>
+                          <label class="card-title">Name:</label>
+                          <span class="card-title text-secondary mx-2"><?= $player['name']; ?></span>
                         </div>
 
                         <div class="meta-data">
-                          <h2 class="card-title">Club:</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['team']; ?></h5>
+                          <label class="card-title">Club:</label>
+                          <span class="card-title text-secondary mx-2"><?= $player['team']; ?></span>
                         </div>
 
                         <div class="meta-data">
-                          <h2 class="card-title">Position:</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['role']; ?></h5>
+                          <label class="card-title">Position:</label>
+                          <span class="card-title text-secondary mx-2"><?= $player['role']; ?></span>
                         </div>
 
-                        <div class="meta-data">
-                          <h2 class="card-title">Age:</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['age']; ?></h5>
+                        <div class="">
+                          <label class="card-title fs-5">Goals:
+                          <span class="card-title text-secondary mx-2"><b class="fs-4 text-primary"><?= $player['goals']; ?></b></span>
+                          </label>
                         </div>
 
-                        <div class="meta-data">
-                          <h2 class="card-title">Shirt No.:</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['shirt_no']; ?></h5>
-                        </div>
 
-                        <div class="meta-data">
-                          <h2 class="card-title">Appearences::</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['appearences']; ?></h5>
-                        </div>
-
-                        <div class="meta-data">
-                          <h2 class="card-title">Goals:</h2>
-                          <h5 class="card-title text-secondary mx-2"><?= $player['goals']; ?></h5>
-                        </div>
                       </div>
                     </div>
                   </div>

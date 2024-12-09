@@ -5,7 +5,7 @@ echo<<<HTML
 HTML;
 $logfile = "core/log/log_hx.html";
 $log_wh = "";$log_wf = "";
-$log_wh .= "<table class ='table table-striped'>";
+$log_wh .= "<table class ='table table-striped table-bordered table-data'>";
 $log_wh .= "<thead>";
 $log_wh .= "<tr>";
 $log_wh .= "<th scope='col'>No</th>";

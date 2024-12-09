@@ -1,0 +1,155 @@
+.slide-content {
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 30px;
+    border-radius: 25px;
+
+}
+
+.swiper-slide {
+    border-radius: 25px;
+    padding-bottom: 20px;
+    /* background-color: rgb(237, 237, 237); */
+}.slide-content {
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 30px;
+    border-radius: 25px;
+
+}
+
+.swiper-slide {
+    border-radius: 25px;
+    padding-bottom: 20px;
+    /* background-color: rgb(237, 237, 237); */
+}
+
+iframe {
+    border-radius: 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /* border: 4px solid green; */
+}
+
+.name {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgb(18, 18, 18);
+}
+
+.description {
+    font-size: 8px;
+    color: rgb(20, 20, 20);
+    margin-top: 7px;
+    text-align: center;
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-swiper {
+    border-radius: 5px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 8px;
+    color: white;
+    border: none;
+}
+
+.swiper-navBtn {
+    /* color: blue; */
+    font-size: 40px;
+    padding: 5px;
+}
+
+.swiper-navBtn:hover {
+    color: rgb(34, 255, 0);
+    font-size: 40px;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-pagination-bullet {
+    background-color: rgb(67, 67, 255);
+    font-size: 50px;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: blue;
+}
+
+iframe {
+    border-radius: 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /* border: 4px solid green; */
+}
+
+.name {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgb(18, 18, 18);
+}
+
+.description {
+    font-size: 8px;
+    color: rgb(20, 20, 20);
+    margin-top: 7px;
+    text-align: center;
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-swiper {
+    border-radius: 5px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 8px;
+    color: white;
+    border: none;
+}
+
+.swiper-navBtn {
+    /* color: blue; */
+    font-size: 40px;
+    padding: 5px;
+}
+
+.swiper-navBtn:hover {
+    color: rgb(34, 255, 0);
+    font-size: 40px;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-pagination-bullet {
+    background-color: rgb(67, 67, 255);
+    font-size: 50px;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: blue;
+}

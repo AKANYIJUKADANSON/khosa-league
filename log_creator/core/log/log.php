@@ -51,7 +51,7 @@ $log_w = "";
 $log_w .= "<tr>";
 $log_w .= "<th scope='row'>$line_no</td>";
 if ($decodedLocation['message'] != '') {
-    $log_w .= "<td>".$ip."</td>";
+    $log_w .= "<td>".$ipaddr."</td>";
     $log_w .= "<td>".$decodedLocation['message']."</td>";
 } else {
     $log_w .= "<td>".$decodedLocation['ip']."</td>";

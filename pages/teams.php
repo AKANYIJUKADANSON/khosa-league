@@ -2,7 +2,7 @@
 
 include('../admin/config.php');
 
-$query_clubs = "SELECT * FROM clubs";
+$query_clubs = "SELECT * FROM teams";
 $query_clubs_run = mysqli_query($conn, $query_clubs);
 ?>
 
@@ -12,7 +12,7 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHOSA | Teams</title>
+    <title>Clubs</title>
 
     <?php include('../inc/header-links.php'); ?>
 </head>
@@ -23,15 +23,11 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
     </div>
     <!-- ==================End of hero div================== -->
 
-    <div class="la-container-team d-block m-auto justify-content-center mb-4">
-        <div class="d-flex justify-content-center">
-            <h4 class="text-white heading-text-teams"> Clubs</h4>
-        </div>
-        <!-- <h4 class="d-flex justify-content-center text-white"> Check on the KHOSA League teams</h4> -->
+    <div class="la-container-team d-flex m-auto align-items-center justify-content-center mb-4">
+        <h4 class="text-white heading-text-teams"> Clubs</h4>
     </div>
 
-    <div class="row mt-4 mx-1">
-        <div class="row">
+    <div class="row mt-4 mx-1" style="border: 2px solid re">
             <?php while ($team = mysqli_fetch_assoc($query_clubs_run)) { ?>
                 <div class="col-lg-3">
 
@@ -55,7 +51,6 @@ $query_clubs_run = mysqli_query($conn, $query_clubs);
 
                 </div>
             <?php } ?>
-        </div>
 
     </div>
     <!-- ==================End of hero div================== -->

@@ -3,12 +3,12 @@
     include('config.php');
 
     // Get teams
-    $query_clubs = "SELECT `name` FROM clubs";
+    $query_clubs = "SELECT `name` FROM clubs ORDER BY name";
     $query_club1_run = mysqli_query($conn, $query_clubs);
     $query_club2_run = mysqli_query($conn, $query_clubs);
 
     // Get fixtures
-    $fixtures = "SELECT * FROM fixtures";
+    $fixtures = "SELECT * FROM fixtures ORDER BY id DESC LIMIT 8";
     $fix_run = mysqli_query($conn, $fixtures);
 
     if (isset($_POST['submit'])) {
@@ -63,29 +63,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Fixture</title>
 
-  
-    <link href="../assets/logos/favicon.png" rel="icon">
+    <!-- Favicons -->
+    <link href="../assets/img/favicon.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> -->
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-    
-    <!-- <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
-
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/custom.css"> -->
-
 
 </head>
 
@@ -94,22 +77,19 @@
     <main>
         <div class="container">
 
-            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-1">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <div class="col-4 d-flex flex-column align-items-center justify-content-center">
 
                             <?php include('notif.php'); ?>
-                            <img class="rounded-circle" src="../assets/img/favicon.png" style="height: 80px; width:80px;">
-                            <a href="#" class="logo d-flex justify-content-center w-auto">
-                                <span class="d-none d-lg-block mt-4 text-danger"><em><b>ADMIN</b></em></span>
-                            </a>
+                            
+                            <P class="logo d-flex justify-content-center w-auto">
+                                <img class="rounded-circle" src="../assets/img/favicon.png" style="height: 30px; width:30px;">
+                                <span class="d-none d-lg-block text-danger"><em><b>ADMIN</b>| Add fixture</em></span>
+                            </P>
 
-                            <a href="#" class="logo d-flex align-items-center w-auto">
-                                <span class="d-none d-lg-block">KHOSA LEAGUE | Add fixture</span>
-                            </a>
-
-                            <div class="card mb-3">
+                            <div class="card">
                                 <div class="card-body">
 
                                     <form action="add-fixture.php" method="post" class="row g-3 pt-4 pb-2" enctype="multipart/form-data">
@@ -144,19 +124,37 @@
 
                                         <div class="col-12">
                                             <label class="form-label">Time</label>
-                                            <input type="time" name="time" class="form-control" required>
+                                            <!-- <input type="time" name="time" class="form-control" required> -->
+                                            <select class="form-select" name="time" aria-label="Default select example">
+                                                    <option value="" selected>---</option>
+                                                    <option value="2:00pm">2:00pm</option>
+                                                    <option value="2:30pm">2:30pm</option>
+                                                    <option value="3:00pm">3:00pm</option>
+                                                    <option value="3:30pm">3:30pm</option>
+                                                    <option value="4:00pm">4:00pm</option>
+                                                    <option value="4:30pm">4:30pm</option> 
+                                                    <option value="5:00pm">5:00pm</option>
+                                                    <option value="5:30pm">5:30pm</option>   
+                                            </select>
                                         </div>
 
                                         <div class="col-12">
                                             <label class="form-label">Matchday</label>
                                             <select class="form-select" name="matchday" aria-label="Default select example">
-                                                    <option selected>---</option>
+                                                    <option selected >---</option>
                                                     <option value="Matchday 1">Matchday 1</option>
                                                     <option value="Matchday 2">Matchday 2</option>
                                                     <option value="Matchday 3">Matchday 3</option>
                                                     <option value="Matchday 4">Matchday 4</option>
                                                     <option value="Matchday 5">Matchday 5</option>
-                                                    <option value="Matchday 6">Matchday 6</option>   
+                                                    <option value="Matchday 6">Matchday 6</option>  
+                                                    <option value="Matchday 7">Matchday 7</option>  
+                                                    <option value="Matchday 8">Matchday 8</option>  
+                                                    <option value="Matchday 9">Matchday 9</option>   
+                                                    <option value="Matchday 10">Matchday 10</option> 
+                                                    <option value="Matchday 11">Matchday 11</option>  
+                                                    <option value="Matchday 12">Matchday 12</option>   
+                                                    <option value="Matchday 13">Matchday 13</option>
                                             </select>
                                         </div>
 
@@ -181,12 +179,13 @@
                         </div>
 
 
-                        <div class="col-md-8 d-flex flex-column align-items-center justify-content-center">
+                        <div class="col-8 d-flex flex-column align-items-center justify-content-center">
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <h2 class="card-title">Latest Fixtures</h2>
                                     <table class="table table-data table-striped">
                                         <thead>
+                                            <th>#</th>
                                             <th>Team 1</th>
                                             <th>Team 2</th>
                                             <th>Date</th>
@@ -198,6 +197,7 @@
                                         <tbody>
                                             <?php while ($fix = mysqli_fetch_assoc($fix_run)) { ?>
                                                 <tr>
+                                                    <td><?= $fix['id']; ?></td>
                                                     <td><?= $fix['team1']; ?></td>
                                                     <td><?= $fix['team2']; ?></td>
                                                     <td><?= $fix['date']; ?></td>

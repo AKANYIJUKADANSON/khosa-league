@@ -3,12 +3,12 @@
     include('config.php');
     $isUpdate = false;
 
-    // Get Club names
-    $query_teams = "SELECT `name` FROM clubs";
+    // // Get Club names
+    $query_teams = "SELECT `name` FROM teams";
     $query_teams_run = mysqli_query($conn, $query_teams);
 
     // Get players
-    $players = "SELECT * FROM players";
+    $players = "SELECT * FROM players ORDER BY id DESC";
     $players_run = mysqli_query($conn, $players);
 
     // File upload directory 
@@ -30,9 +30,6 @@
                 if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
                     // Insert image file name and post data into database 
 
-                    $player_age = $_POST['age'];
-                    $appearances = $_POST['appearances'];
-                    $shirt_no = $_POST['shirt_no'];
                     $goals_scored = $_POST['goals_scored'];
                     $about = $_POST['about'];
                     $name = $_POST['name'];
@@ -40,36 +37,66 @@
                     $role = $_POST['role'];
 
                     // echo $fileName . " <br>";
-                    // echo $player_age . " <br>";
-                    // echo $appearances . " <br>";
-                    // echo $shirt_no . " <br>";
                     // echo $goals_scored . " <br>";
                     // echo $about . " <br>";
                     // echo $name . " <br>";
                     // echo $team . " <br>";
                     // echo $role . " <br>";
 
-                    $add_player = "INSERT INTO `players`(`image`, `age`, `appearances`, `shirt_no`, `goals`, `about`, `name`, `team`, `role`)
-                        VALUES('$fileName', '$player_age', '$appearances', '$shirt_no', '$goals_scored', '$about', '$name', '$team', '$role' )";
+                    // $add_player = "INSERT INTO `players`(`image`, `age`, `appearances`, `shirt_no`, `goals`, `about`, `name`, `team`, `role`)
+                    //     VALUES('$fileName', '$player_age', '$appearances', '$shirt_no', '$goals_scored', '$about', '$name', '$team', '$role' )";
+
+                    $add_player = "INSERT INTO `players`(`image`, `goals`, `about`, `name`, `team`, `role`)
+                        VALUES('$fileName', '$goals_scored', '$about', '$name', '$team', '$role' )";
+
 
                     $query_player_run = mysqli_query($conn, $add_player);
                     if ($query_player_run) {
-                        $_SESSION['status'] = "202: Success";
+                        $_SESSION['status'] = "202: Player added successfully";
                         // echo "<script>window.location.href = 'add_player.php'</script>";
-                        echo "Nkitadeyo";
+                        // echo "Nkitadeyo";
                     } else {
                         // $_SESSION['status'] = "505: Error->" . mysqli_error();
                         echo "505: Error->" . mysqli_error();
                     }
                 } else {
-                    // $statusMsg = "Sorry, there was an error uploading file";
-                    echo "Sorry, there was an error uploading file";
+                    $statusMsg = "Sorry, there was an error uploading file";
+                    // echo "Sorry, there was an error uploading file";
                 }
             } else {
                 // $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
                 echo 'Sorry, only jpg, JPG, png, PNG files are allowed to upload.';
             }
         } else {
+            $goals_scored = $_POST['goals_scored'];
+            $about = $_POST['about'];
+            $name = $_POST['name'];
+            $team = $_POST['team'];
+            $role = $_POST['role'];
+
+            // echo $fileName . " <br>";
+            // echo $goals_scored . " <br>";
+            // echo $about . " <br>";
+            // echo $name . " <br>";
+            // echo $team . " <br>";
+            // echo $role . " <br>";
+
+            $add_player = "INSERT INTO `players`(`image`, `goals`, `about`, `name`, `team`, `role`)
+                VALUES('placeholder.jpg', '$goals_scored', '$about', '$name', '$team', '$role' )";
+
+
+            $query_player_run = mysqli_query($conn, $add_player);
+            if ($query_player_run) {
+                $_SESSION['status'] = "202: Player added successfully";
+                
+                // echo "<script>window.location.href = 'add_player.php'</script>";
+                // echo "Nkitadeyo";
+            } else {
+                // $_SESSION['status'] = "505: Error->" . mysqli_error();
+                echo "505: Error->" . mysqli_error();
+            }
+
+
             // $statusMsg = 'Please select a file to upload and all fields are required';
             echo 'Please select a file to upload and all fields are required';
         }    
@@ -218,8 +245,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Playere</title>
 
-    <!-- <link href="../assets/logos/favicon.png" rel="icon">
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+    <!-- Favicons -->
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -270,24 +298,9 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <label class="form-label text-primary">Age</label>
-                                            <input type="text" name="age" class="form-control" required value="<?php if($isUpdate){echo $data['age']; ?> <?php }else{?> <?php } ?>">
-                                        </div>
-
-                                        <!-- <div class="col-12">
-                                            <label class="form-label text-primary">Appearances</label>
-                                            <input type="text" name="appearances" class="form-control" required value="<?php //if($isUpdate){echo $data['appearances']; ?> <?php //}else{?> <?php //} ?>">
-                                        </div> -->
-
-                                        <!-- <div class="col-12">
-                                            <label class="form-label text-primary">Shirt Number</label>
-                                            <input type="text" name="shirt_no" class="form-control" required value="<?php //if($isUpdate){echo $data['shirt_no']; ?> <?php //}else{?> <?php //} ?>">
-                                        </div> -->
-
-                                        <!-- <div class="col-12">
                                             <label class="form-label text-primary">Goals Scored</label>
-                                            <input type="text" name="goals_scored" class="form-control" required value="<?php //if($isUpdate){echo $data['goals']; ?> <?php //}else{?> <?php //} ?>">
-                                        </div> -->
+                                            <input type="text" name="goals_scored" class="form-control" required value="<?php if($isUpdate){echo $data['goals']; ?> <?php }else{?> <?php } ?>">
+                                        </div>
 
                                         <div class="col-12">
                                             <label class="form-label text-primary">about</label>
@@ -351,10 +364,7 @@
                                     <table class="table table-border table-data table-striped datatable overflow-auto">
                                         <thead>
                                             <th>Name</th>
-                                            <th>Age</th>
-                                            <!-- <th>Apprncs</th> -->
-                                            <!-- <th>Shirt No/</th> -->
-                                            <!-- <th>GS</th> -->
+                                            <th>Goals</th>
                                             <th>About</th>
                                             <th>Team</th>
                                             <th>Role</th>
@@ -365,11 +375,11 @@
                                             <?php while ($player = mysqli_fetch_assoc($players_run)) { ?>
                                                 <tr>
                                                     <td><span class="text-capitalize"><?php echo $player['name']; ?></span></td>
-                                                    <td><?= $player['age']; ?></td>
-                                                    <!-- <td><?php //$player['appearances']; ?></td> -->
-                                                    <!-- <td><?php //$player['shirt_no']; ?></td> -->
-                                                    <!-- <td><?php //$player['goals']; ?></td> -->
+
+                                                    <td><?= $player['goals']; ?></td>
+
                                                     <td style="max-width:100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><?= $player['about']; ?></td>
+                                                    
                                                     <td><?= $player['team']; ?></td>
                                                     <td><?= $player['role']; ?></td>
                                                     <td><?= $player['image']; ?></td>

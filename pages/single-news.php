@@ -8,7 +8,7 @@
     $news_id = $_GET['news_id'];
 
     // fetch posts/news
-    $query_news = "SELECT * FROM news WHERE id != '$news_id' ORDER BY 'created_on'";
+    $query_news = "SELECT * FROM news WHERE id != '$news_id' ORDER BY created_on DESC";
     $query_news_run = mysqli_query($conn, $query_news);
 
     // fetch results
@@ -25,7 +25,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHOSA|Posts</title>
+    <title>Post</title>
 
     <?php include('../inc/header-links.php'); ?>
 
@@ -59,6 +59,11 @@
                     <p>
                         <?= $news_row['body'] ?>
                     </p>
+                </div>
+
+                <div style="margin: 100px 50px 0px 30px">
+                    <p class="text-secondary ">Created on: <i class="fw-bold"><?= $news_row['created_on'] ?></i></p>
+                    <p class="text-secondary mt-2">Category: <i class="fw-bold"><?= $news_row['type'] ?></i></p>
                 </div>
             </div>
 
@@ -109,13 +114,13 @@
         <div class="card-title text-center">
             <h4><b>Sponsors</b></h4>
         </div>
-        <div class="d-flex justify-content-center bg-white m-2 mb-4">
+        <div class="d-flex justify-content-center bg-white mb-4">
 
             <div class="slide-container swiper bg-transparent" >
-            <div class="slide-content bg-transparent" style="padding-right: 50px; background-color: green">
-                <div class="swiper-wrapper mx-4 bg-transparent" style="border: 2px solid deepskyblue">
+            <div class="slide-content bg-transparent" style="padding-right: 50px;">
+                <div class="swiper-wrapper mx-4 bg-transparent">
                 <?php 
-                $query_sponsors = "SELECT * FROM sponsors";
+                $query_sponsors = "SELECT * FROM sponsors  WHERE status= 'Active' ";
                     $query_sponsors_run = mysqli_query($conn, $query_sponsors);
                 while ($sponsor = mysqli_fetch_assoc($query_sponsors_run)) { ?>
                     <div class="card swiper-slide bg-transparent">
