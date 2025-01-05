@@ -5,15 +5,13 @@
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ REMOTE DATA
     // $host = "127.0.0.1";
     // $user = "khosalea_admin";
-    // $password = "Dstar@Khosa1";
+    // $password = "Dnyonyowzi@kiosa1";
     // $db = "khosalea_khosa";
 
     // // Connection to db
     // $conn = mysqli_connect($host, $user, $password, $db);
 
     // $pdo = new PDO('mysql:host=127.0.0.1;dbname=khosalea_khosa', 'khosalea_admin', 'Dstar@Khosa1');
-
-
 
 
 

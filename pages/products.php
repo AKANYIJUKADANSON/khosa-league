@@ -79,7 +79,7 @@
 
                       <div class="row">
                         <div class="col-md-12">
-                          <a href="single-product.php?pid=<?= $product['id'] ?>" class="px-2 fw-bold text-white" style="background-color: orangered; border: none; border-radius: 5px; padding: 5px"><i class="bi bi-cart fw-bolder me-2 "></i>Add To Cart</a>
+                          <a href="single-product.php?pid=<?= $product['id'] ?>" class="text-white" style="background-color: orangered; border: none; border-radius: 5px; padding: 10px"><i class="bi bi-cart fw-bolder me-2 "></i>Add To Cart</a>
                         </div>
                       </div>
                     </div>

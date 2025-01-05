@@ -20,11 +20,11 @@
 
     <!-- ==================Start of Navigation div================== -->
     <div class="header d-flex align-items-center bg-white" style="border: 2px solid red">
-      <div class="container d-flex align-items-center justify-content-between  p-1">
+      <div class="d-flex align-items-center justify-content-between  p-1">
 
         <div class="d-flex my-auto align-items-center justify-content-center">
           <img style="height: 50px; width: 50px;" class="img-logo" src="../assets/img/logo.png" alt="">
-          <h1><span class="logo-tex text-black fs-4"><b>KHOSA LEAGUE</b></span></h1>
+          <h1><span class="logo-tex text-black fs-4 ms-2 me-4"><b>KHOSA LEAGUE</b></span></h1>
         </div>
         
         <nav id="navbar" class="navbar">

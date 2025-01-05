@@ -10,7 +10,7 @@
         JOIN teams t1 ON m.home_team_id = t1.id
         JOIN teams t2 ON m.away_team_id = t2.id
         WHERE game_week = 'week1' ";
-    $resultsWeekOne_run = $result = $conn->query($resultsWeekOne);
+    $resultsWeekOne_run = $conn->query($resultsWeekOne);
 
       // ~~~~~> Week 2
     $resultsWeekTwo = "SELECT m.id, t1.name AS home_team, t2.name AS away_team, m.home_team_goals, m.away_team_goals, m.match_date, m.win_type, m.home_team_lady_played, m.away_team_lady_played  
